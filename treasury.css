@@ -291,6 +291,170 @@
   letter-spacing: 0.05em;
 }
 
+/* ===== FEE STATS ===== */
+#fee-stats { background: var(--bg2); }
+
+.fee-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.fee-stat-box {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fee-stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.fee-stat-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: rgba(10, 168, 158, 0.15);
+  border: 1px solid var(--teal);
+  color: var(--teal-light);
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+}
+
+.fee-stat-badge-gold {
+  background: rgba(201, 162, 39, 0.15);
+  border-color: var(--gold-dim);
+  color: var(--gold);
+}
+
+.live-dot {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--green-light);
+}
+
+.live-pulse {
+  width: 8px;
+  height: 8px;
+  background: var(--green-light);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-live 2s ease-in-out infinite;
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+.fee-stat-sol {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--teal-light);
+}
+
+.fee-stat-total .fee-stat-sol { color: var(--gold-light); }
+
+.fee-stat-usd {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.fee-stat-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+  margin-top: 0.3rem;
+}
+
+/* Admin bar */
+.fee-admin-bar {
+  background: var(--bg3);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-top: 1.5rem;
+}
+
+.fee-admin-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 1rem;
+}
+
+.fee-admin-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.fee-input {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.9rem;
+  padding: 0.6rem 1rem;
+  flex: 1;
+  min-width: 160px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.fee-input:focus { border-color: var(--teal); }
+.fee-input-sm { flex: 0 0 120px; min-width: 100px; }
+
+.fee-admin-status {
+  display: block;
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
+  color: var(--green-light);
+  min-height: 1.2em;
+}
+
+/* Purchase history */
+#purchases-section { background: var(--bg); }
+
+.purchase-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 0.8rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.purchase-token-info { display: flex; flex-direction: column; gap: 0.2rem; }
+.purchase-token-name { font-weight: 700; font-size: 1rem; color: var(--text); }
+.purchase-token-ca   { font-size: 0.75rem; color: var(--text-muted); font-family: monospace; }
+
+.purchase-amount { text-align: right; }
+.purchase-sol  { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold-light); }
+.purchase-date { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
+
 /* ===== VOTING SECTION ===== */
 #voting-section { background: var(--bg); }
 
@@ -551,6 +715,12 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   #treasury-header { padding: 6rem 1.2rem 2.5rem; }
+
+  .fee-stats-grid { grid-template-columns: 1fr; }
+  .fee-admin-form { flex-direction: column; }
+  .fee-input, .fee-input-sm { flex: 1 1 100%; min-width: unset; }
+  .purchase-list-item { flex-direction: column; align-items: flex-start; }
+  .purchase-amount { text-align: left; }
 
   .treasury-stats {
     display: grid;
