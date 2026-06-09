@@ -1,4 +1,5 @@
-const { kv } = require('@vercel/kv');
+const { Redis } = require('@upstash/redis');
+const redis = Redis.fromEnv();
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
@@ -23,8 +24,8 @@ module.exports = async function handler(req, res) {
   if (incomingLamports > 0) {
     const sol = incomingLamports / 1_000_000_000;
     await Promise.all([
-      kv.incrbyfloat('weekly_fees', sol),
-      kv.incrbyfloat('total_fees_received', sol),
+      redis.incrbyfloat('weekly_fees', sol),
+      redis.incrbyfloat('total_fees_received', sol),
     ]);
   }
 
