@@ -28,6 +28,22 @@ Chronological log of all key project decisions.
 **Odluka:** Crveni CTA gumbi (#E63946), teal akcent (#0AA89E), zlatna (#C9A227)  
 **Razlog:** Istraživanje — crveni CTAs +34% konverzija, teal = povjerenje + rast
 
+### Treasury — distribucija
+**Odluka:** Tjedno, split 25% locked 1 god / 75% liquid holderima  
+**Alati:** Streamflow (vesting + claim portal), Helius API (snapshot)  
+**Trošak:** ~1 SOL prva 3 mj
+
+### Treasury — voting
+**Odluka:** On-chain, Realms (SPL Governance) u Phase 1, custom 1-wallet-1-vote program u Phase 2  
+**Glasanje:** 1 wallet = 1 glas (cilj), za sada token-weighted dok ne izgradimo custom program
+
+### Treasury — eligibility
+**Odluka:** Minimum $10 worth of $MEME u walletu za distribuciju  
+**Verifikacija:** Helius API snapshot prije svake distribucije
+
+### Treasury — kategorije
+**Odluka:** Dvije kategorije — Collab/Partnership (team pick) i Our Pick (community vote)
+
 ### Workflow pravilo
 **Odluka:** Završiti tekući zadatak prije prihvaćanja novog  
 **Razlog:** Fokus i kvaliteta outputa
