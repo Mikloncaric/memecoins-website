@@ -48,7 +48,10 @@ nav {
   font-family: 'Cinzel', serif;
   font-size: 1.6rem;
   font-weight: 900;
-  color: var(--gold);
+  background: linear-gradient(135deg, #14F195, #9945FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   width: 40px; height: 40px;
   border: 2px solid var(--gold);
   border-radius: 50%;
@@ -135,7 +138,10 @@ nav {
   font-family: 'Cinzel', serif;
   font-size: 5rem;
   font-weight: 900;
-  color: var(--gold);
+  background: linear-gradient(135deg, #14F195, #9945FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   width: 120px; height: 120px;
   border: 3px solid var(--gold);
   border-radius: 50%;
@@ -564,7 +570,10 @@ footer {
   font-family: 'Cinzel', serif;
   font-size: 2rem;
   font-weight: 900;
-  color: var(--gold);
+  background: linear-gradient(135deg, #14F195, #9945FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   width: 60px; height: 60px;
   border: 2px solid var(--gold);
   border-radius: 50%;
