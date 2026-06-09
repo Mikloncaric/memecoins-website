@@ -317,6 +317,38 @@ section h2 {
 
 .card p { color: var(--text-muted); font-size: 0.95rem; }
 
+/* ===== FEE INFO BAR ===== */
+.fee-info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  background: rgba(201, 162, 39, 0.07);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1.5rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.fee-info-item {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.fee-info-item strong { color: var(--gold-light); }
+
+.fee-info-sep {
+  color: var(--border);
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .fee-info-sep { display: none; }
+  .fee-info-bar { flex-direction: column; gap: 0.4rem; }
+}
+
 /* ===== FEE SPLIT ===== */
 .fee-split {
   display: flex;
