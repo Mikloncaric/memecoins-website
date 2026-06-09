@@ -320,15 +320,14 @@ section h2 {
 /* ===== FEE SPLIT ===== */
 .fee-split {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
   margin-bottom: 3rem;
-  flex-wrap: wrap;
 }
 
 .fee-box {
-  flex: 1;
-  min-width: 220px;
+  width: 100%;
+  max-width: 520px;
   background: var(--bg3);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -361,7 +360,8 @@ section h2 {
   font-size: 2rem;
   color: var(--gold-dim);
   font-weight: 700;
-  flex-shrink: 0;
+  padding: 0.6rem 0;
+  text-align: center;
 }
 
 /* ===== FLYWHEEL ===== */
@@ -702,10 +702,6 @@ footer {
   /* SECTIONS */
   section { padding: 4rem 1.2rem; }
   .section-desc { margin-bottom: 2rem; }
-
-  /* FEE SPLIT */
-  .fee-split { flex-direction: column; align-items: stretch; }
-  .fee-box { min-width: unset; }
 
   /* FLYWHEEL */
   .flywheel { flex-direction: column; }
