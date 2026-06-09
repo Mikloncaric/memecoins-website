@@ -1,0 +1,20 @@
+# Windows system files
+*.dat
+*.DAT
+*.blf
+*.regtrans-ms
+*.LOG1
+*.LOG2
+ntuser.ini
+
+# Claude AI files
+.claude/
+.claude.json
+.claude.json.backup
+
+# Node modules (if used later)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
