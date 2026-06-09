@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treasury — MEMECOINS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="treasury.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">m</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#utility">Utility</a></li>
+      <li><a href="treasury.html" class="active">Treasury</a></li>
+      <li><a href="index.html#roadmap">Roadmap</a></li>
+    </ul>
+    <a href="index.html#buy" class="btn-nav">Buy $MEME</a>
+  </nav>
+
+  <!-- TREASURY HEADER -->
+  <section id="treasury-header">
+    <div class="section-inner">
+      <span class="section-label">Community Treasury</span>
+      <h1>MEMECOINS Treasury</h1>
+      <p class="treasury-desc">Every week, trading fees are used to buy promising AnonCoin projects and distribute them to $MEME holders. Minimum $10 in $MEME required to qualify.</p>
+      <div class="treasury-stats">
+        <div class="t-stat">
+          <span class="t-stat-value" id="total-value">$0.00</span>
+          <span class="t-stat-label">Total Treasury Value</span>
+        </div>
+        <div class="t-stat">
+          <span class="t-stat-value" id="token-count">0</span>
+          <span class="t-stat-label">Tokens Held</span>
+        </div>
+        <div class="t-stat">
+          <span class="t-stat-value">Weekly</span>
+          <span class="t-stat-label">Distribution Schedule</span>
+        </div>
+        <div class="t-stat">
+          <span class="t-stat-value">75%</span>
+          <span class="t-stat-label">Goes to Holders</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISTRIBUTION INFO -->
+  <div class="distribution-bar">
+    <div class="section-inner dist-inner">
+      <div class="dist-item">
+        <span class="dist-icon">🔒</span>
+        <div>
+          <strong>25% Locked</strong>
+          <span>1-year vesting via Streamflow</span>
+        </div>
+      </div>
+      <div class="dist-divider">+</div>
+      <div class="dist-item">
+        <span class="dist-icon">💸</span>
+        <div>
+          <strong>75% Distributed</strong>
+          <span>Weekly to eligible $MEME holders</span>
+        </div>
+      </div>
+      <div class="dist-divider">=</div>
+      <div class="dist-item">
+        <span class="dist-icon">✅</span>
+        <div>
+          <strong>Eligible if</strong>
+          <span>You hold ≥ $10 of $MEME</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLLAB / PARTNERSHIP -->
+  <section id="collab-section">
+    <div class="section-inner">
+      <div class="category-header">
+        <div>
+          <span class="category-tag collab-tag">Collab / Partnership</span>
+          <h2>Official Partners</h2>
+          <p class="category-desc">Tokens from projects that have officially partnered with MEMECOINS.</p>
+        </div>
+      </div>
+      <div class="token-grid" id="collab-grid">
+        <!-- Populated by JS -->
+        <div class="token-empty">
+          <span class="empty-icon">◎</span>
+          <p>No partnership tokens yet.</p>
+          <span>First collaborations coming soon.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR PICK -->
+  <section id="ourpick-section">
+    <div class="section-inner">
+      <div class="category-header">
+        <div>
+          <span class="category-tag pick-tag">Our Pick</span>
+          <h2>Community Picks</h2>
+          <p class="category-desc">AnonCoin tokens selected by the community vote. Holders vote on the next pick.</p>
+        </div>
+      </div>
+      <div class="token-grid" id="pick-grid">
+        <div class="token-empty">
+          <span class="empty-icon">⬡</span>
+          <p>No picks yet.</p>
+          <span>Vote below to influence the first pick.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOTING -->
+  <section id="voting-section">
+    <div class="section-inner">
+      <span class="section-label">On-Chain Voting</span>
+      <h2>Vote: Next Pick</h2>
+      <p class="section-desc">$MEME holders vote on which AnonCoin token gets bought next. 1 wallet = 1 vote. Voting powered by Realms (SPL Governance).</p>
+
+      <div class="vote-candidates" id="vote-candidates">
+        <div class="vote-card">
+          <div class="vote-token-info">
+            <div class="vote-token-logo placeholder-logo">?</div>
+            <div>
+              <strong>Nominations open</strong>
+              <span>Submit a token for voting via our X or Telegram</span>
+            </div>
+          </div>
+          <div class="vote-bar-wrap">
+            <div class="vote-bar" style="width: 0%"></div>
+          </div>
+          <span class="vote-pct">0%</span>
+        </div>
+      </div>
+
+      <div class="vote-actions">
+        <a href="#" class="btn-primary disabled" id="vote-btn">Connect Wallet to Vote</a>
+        <a href="https://x.com/memecoinsoul" target="_blank" rel="noopener" class="btn-secondary">Nominate a Token on X</a>
+      </div>
+
+      <p class="vote-note">Voting goes live after token launch. Powered by <a href="https://realms.today" target="_blank" rel="noopener">Realms</a>.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">m</div>
+    <p class="footer-tagline">MEMECOINS — The Hub of the Meme Economy</p>
+    <div class="footer-links">
+      <a href="https://x.com/memecoinsoul" target="_blank" rel="noopener">X (Twitter)</a>
+      <a href="#">Telegram (soon)</a>
+      <a href="#">AnonCoin (soon)</a>
+    </div>
+    <p class="footer-disclaimer">$MEME is a community token. This is not financial advice. Always DYOR.</p>
+  </footer>
+
+  <!-- TOKEN MODAL -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="token-modal">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="modal-header">
+        <div class="modal-logo" id="modal-logo"></div>
+        <div>
+          <h3 id="modal-name"></h3>
+          <span class="modal-category" id="modal-category"></span>
+        </div>
+      </div>
+      <div class="modal-stats">
+        <div class="modal-stat">
+          <span class="modal-stat-label">Price</span>
+          <span class="modal-stat-value" id="modal-price">—</span>
+        </div>
+        <div class="modal-stat">
+          <span class="modal-stat-label">% of Treasury</span>
+          <span class="modal-stat-value" id="modal-pct">—</span>
+        </div>
+        <div class="modal-stat">
+          <span class="modal-stat-label">24h Change</span>
+          <span class="modal-stat-value" id="modal-change">—</span>
+        </div>
+      </div>
+      <div class="modal-chart" id="modal-chart">
+        <iframe id="chart-iframe" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <a href="#" class="btn-primary modal-buy" id="modal-buy" target="_blank" rel="noopener">Buy on AnonCoin</a>
+    </div>
+  </div>
+
+  <script src="treasury.js"></script>
+</body>
+</html>
