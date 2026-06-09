@@ -1,7 +1,9 @@
 # Treasury System — Specification
 
 ## Concept
-Trading fees from $MEME token → Treasury → Buy AnonCoin tokens → Distribute to holders
+Trading fees from $MEME token split 50/50:
+- **50% → Treasury** → Buy AnonCoin tokens → Distribute to holders
+- **50% → Development** → Fund ongoing project development
 
 ## Holder Eligibility
 - Minimum **$10 worth of $MEME** to qualify for weekly distribution
