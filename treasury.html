@@ -102,6 +102,64 @@
     </div>
   </div>
 
+  <!-- FEE TRACKER -->
+  <section id="fee-stats">
+    <div class="section-inner">
+      <span class="section-label">Live Fee Tracker</span>
+      <h2>Treasury Fees</h2>
+      <p class="section-desc">Fees from trading $MEME accumulate in the treasury wallet. Weekly fees are used to buy AnonCoin tokens distributed to holders.</p>
+
+      <div class="fee-stats-grid">
+        <div class="fee-stat-box">
+          <div class="fee-stat-top">
+            <span class="fee-stat-badge">This Week</span>
+            <span class="live-dot"><span class="live-pulse"></span>Live</span>
+          </div>
+          <span class="fee-stat-sol" id="weekly-sol">— SOL</span>
+          <span class="fee-stat-usd" id="weekly-usd">≈ $—</span>
+          <span class="fee-stat-note" id="weekly-since">Since last purchase: —</span>
+        </div>
+
+        <div class="fee-stat-box fee-stat-total">
+          <div class="fee-stat-top">
+            <span class="fee-stat-badge fee-stat-badge-gold">Total Deployed</span>
+          </div>
+          <span class="fee-stat-sol" id="total-sol">— SOL</span>
+          <span class="fee-stat-usd" id="total-usd">≈ $—</span>
+          <span class="fee-stat-note">Cumulative fees used for treasury buys</span>
+        </div>
+      </div>
+
+      <!-- Admin panel — simulation only -->
+      <div class="fee-admin-bar">
+        <span class="fee-admin-label">Simulate Treasury Purchase</span>
+        <div class="fee-admin-form">
+          <input type="text"     id="p-name"   placeholder="Token name"        class="fee-input" />
+          <input type="text"     id="p-symbol" placeholder="$SYMBOL"            class="fee-input fee-input-sm" />
+          <input type="text"     id="p-ca"     placeholder="Contract address"   class="fee-input" />
+          <input type="password" id="p-secret" placeholder="Admin secret"       class="fee-input fee-input-sm" />
+          <button class="btn-primary" id="fee-reset-btn">Record &amp; Reset</button>
+        </div>
+        <span class="fee-admin-status" id="fee-admin-status"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PURCHASE HISTORY -->
+  <section id="purchases-section">
+    <div class="section-inner">
+      <span class="section-label">Purchase History</span>
+      <h2>Treasury Buys</h2>
+      <div id="purchases-list">
+        <div class="token-empty">
+          <span class="empty-icon">◎</span>
+          <p>No purchases yet.</p>
+          <span>First treasury buy coming after launch.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- COLLAB / PARTNERSHIP -->
   <section id="collab-section">
     <div class="section-inner">

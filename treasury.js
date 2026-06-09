@@ -18,6 +18,101 @@ if (hamburger && navMenu) {
   });
 }
 
+// ===== FEE TRACKER =====
+async function loadFeeStats() {
+  try {
+    const res = await fetch('/api/stats');
+    if (!res.ok) return;
+    const data = await res.json();
+
+    const solFmt = v => (v ?? 0).toFixed(4) + ' SOL';
+    const usdFmt = (v, p) => '≈ $' + ((v ?? 0) * (p ?? 0)).toFixed(2);
+
+    const el = id => document.getElementById(id);
+
+    if (el('weekly-sol')) el('weekly-sol').textContent = solFmt(data.weeklyFees);
+    if (el('weekly-usd')) el('weekly-usd').textContent = usdFmt(data.weeklyFees, data.solPrice);
+    if (el('weekly-since') && data.lastReset) {
+      const d = new Date(data.lastReset);
+      el('weekly-since').textContent = 'Since last purchase: ' + d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+    if (el('total-sol')) el('total-sol').textContent = solFmt(data.totalSpent);
+    if (el('total-usd')) el('total-usd').textContent = usdFmt(data.totalSpent, data.solPrice);
+
+    renderPurchaseHistory(data.purchases ?? [], data.solPrice ?? 0);
+  } catch (e) {
+    console.warn('Fee stats unavailable:', e.message);
+  }
+}
+
+function renderPurchaseHistory(purchases, solPrice) {
+  const list = document.getElementById('purchases-list');
+  if (!list) return;
+
+  if (!purchases.length) return;
+
+  list.innerHTML = purchases.map(p => {
+    const date = new Date(p.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    const caShort = p.tokenCa ? p.tokenCa.slice(0, 6) + '...' + p.tokenCa.slice(-4) : '—';
+    const usd = (p.feesUsed * solPrice).toFixed(2);
+    return `
+      <div class="purchase-list-item">
+        <div class="purchase-token-info">
+          <span class="purchase-token-name">${p.tokenName} <span style="color:var(--text-muted);font-weight:400">${p.tokenSymbol}</span></span>
+          <span class="purchase-token-ca">${caShort}</span>
+        </div>
+        <div class="purchase-amount">
+          <div class="purchase-sol">${p.feesUsed.toFixed(4)} SOL <span style="font-size:0.8rem;color:var(--text-muted);font-family:Inter,sans-serif">≈ $${usd}</span></div>
+          <div class="purchase-date">${date}</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// Admin reset form
+const resetBtn = document.getElementById('fee-reset-btn');
+if (resetBtn) {
+  resetBtn.addEventListener('click', async () => {
+    const name   = document.getElementById('p-name')?.value.trim();
+    const symbol = document.getElementById('p-symbol')?.value.trim();
+    const ca     = document.getElementById('p-ca')?.value.trim();
+    const secret = document.getElementById('p-secret')?.value.trim();
+    const status = document.getElementById('fee-admin-status');
+
+    if (!name || !secret) { if (status) status.textContent = 'Fill in token name and secret.'; return; }
+
+    resetBtn.disabled = true;
+    if (status) status.textContent = 'Processing...';
+
+    try {
+      const res = await fetch('/api/reset', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ secret, tokenName: name, tokenSymbol: symbol, tokenCa: ca }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        if (status) status.textContent = `Done! ${data.purchase.feesUsed.toFixed(4)} SOL recorded. Weekly counter reset.`;
+        document.getElementById('p-name').value = '';
+        document.getElementById('p-symbol').value = '';
+        document.getElementById('p-ca').value = '';
+        document.getElementById('p-secret').value = '';
+        loadFeeStats();
+      } else {
+        if (status) status.textContent = data.error ?? 'Error.';
+      }
+    } catch (e) {
+      if (status) status.textContent = 'Request failed.';
+    } finally {
+      resetBtn.disabled = false;
+    }
+  });
+}
+
+// Load on page init + refresh every 30s
+loadFeeStats();
+setInterval(loadFeeStats, 30_000);
+
 // ===== TREASURY DATA =====
 // When tokens are added to treasury, populate this array.
 // Each token entry:
