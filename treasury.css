@@ -549,12 +549,37 @@
 .nav-links a.active { color: var(--gold); }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 600px) {
-  .vote-card {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  #treasury-header { padding: 6rem 1.2rem 2.5rem; }
+
+  .treasury-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
   }
-  .vote-bar-wrap { width: 100%; }
-  .modal-chart { height: 260px; }
-  .dist-inner { flex-direction: column; gap: 1rem; }
+
+  .t-stat { min-width: unset; padding: 1rem 1.2rem; }
+
+  .dist-inner { flex-direction: column; gap: 1rem; text-align: center; }
   .dist-divider { display: none; }
+  .dist-item { justify-content: center; }
+
+  .vote-candidates { max-width: 100%; }
+
+  .vote-actions { flex-direction: column; }
+  .vote-actions .btn-primary,
+  .vote-actions .btn-secondary { text-align: center; }
+}
+
+@media (max-width: 600px) {
+  .vote-card { grid-template-columns: 1fr; }
+  .vote-bar-wrap { width: 100%; }
+  .modal-chart { height: 240px; }
+
+  .modal { padding: 1.5rem; }
+  .modal-stats { flex-direction: column; }
+  .modal-stat { min-width: unset; }
+
+  .treasury-stats { grid-template-columns: 1fr 1fr; }
+  .t-stat-value { font-size: 1.3rem; }
 }
