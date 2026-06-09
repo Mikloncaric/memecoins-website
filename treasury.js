@@ -1,3 +1,23 @@
+// ===== HAMBURGER MENU =====
+const hamburger = document.getElementById('nav-hamburger');
+const navMenu = document.getElementById('nav-links');
+
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+    document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
 // ===== TREASURY DATA =====
 // When tokens are added to treasury, populate this array.
 // Each token entry:
