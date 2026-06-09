@@ -7,6 +7,8 @@
   --gold-dim:   #8B6F1E;
   --teal:       #0AA89E;
   --teal-light: #0DD4C8;
+  --green:      #16a34a;
+  --green-light: #22c55e;
   --red:        #E63946;
   --red-dark:   #C1121F;
   --bg:         #06060a;
@@ -71,7 +73,7 @@ nav {
 .nav-links a:hover { color: var(--gold); }
 
 .btn-nav {
-  background: var(--red);
+  background: var(--green);
   color: #fff;
   padding: 0.5rem 1.2rem;
   border-radius: 6px;
@@ -80,10 +82,10 @@ nav {
   text-decoration: none;
   letter-spacing: 0.05em;
   transition: background 0.2s, transform 0.15s;
-  box-shadow: 0 2px 12px rgba(230, 57, 70, 0.4);
+  box-shadow: 0 2px 12px rgba(22, 163, 74, 0.4);
 }
 
-.btn-nav:hover { background: var(--red-dark); transform: translateY(-1px); }
+.btn-nav:hover { background: var(--green-light); transform: translateY(-1px); }
 
 /* ===== HERO ===== */
 #hero {
@@ -184,7 +186,7 @@ nav {
 
 /* ===== BUTTONS ===== */
 .btn-primary {
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  background: linear-gradient(135deg, var(--green-light), var(--green));
   color: #fff;
   padding: 0.85rem 2rem;
   border-radius: 8px;
@@ -193,12 +195,12 @@ nav {
   text-decoration: none;
   letter-spacing: 0.05em;
   transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 20px rgba(230, 57, 70, 0.4);
+  box-shadow: 0 4px 20px rgba(22, 163, 74, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(230, 57, 70, 0.6);
+  box-shadow: 0 8px 30px rgba(22, 163, 74, 0.6);
 }
 
 .btn-secondary {
