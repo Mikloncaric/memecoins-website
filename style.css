@@ -311,53 +311,6 @@ section h2 {
 
 .card p { color: var(--text-muted); font-size: 0.95rem; }
 
-/* ===== FEE SPLIT ===== */
-.fee-split {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
-
-.fee-box {
-  flex: 1;
-  min-width: 220px;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-}
-
-.fee-pct {
-  display: block;
-  font-family: 'Cinzel', serif;
-  font-size: 3rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
-}
-
-.fee-box h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 0.5rem;
-}
-
-.fee-box p { color: var(--text-muted); font-size: 0.9rem; }
-
-.fee-divider {
-  font-size: 2rem;
-  color: var(--gold-dim);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
 /* ===== FLYWHEEL ===== */
 .flywheel {
   display: flex;
