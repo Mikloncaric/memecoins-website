@@ -1,14 +1,15 @@
-const { kv } = require('@vercel/kv');
+const { Redis } = require('@upstash/redis');
+const redis = Redis.fromEnv();
 
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   if (req.method !== 'GET') return res.status(405).end();
 
   const [weeklyFees, totalSpent, lastReset, purchases, solPrice] = await Promise.all([
-    kv.get('weekly_fees'),
-    kv.get('total_spent'),
-    kv.get('last_reset'),
-    kv.get('purchases'),
+    redis.get('weekly_fees'),
+    redis.get('total_spent'),
+    redis.get('last_reset'),
+    redis.get('purchases'),
     getSolPrice(),
   ]);
 
