@@ -12,10 +12,12 @@ Trading fees from $MEME token → Treasury → Buy pump.fun tokens → Distribut
 ### 1. Collab / Partnership
 - Tokens from official partnerships and collaborations
 - Selected by team
+- Split: 75% distributed to holders weekly, 25% held long-term in MEMECOINS treasury
 
 ### 2. Our Pick
-- Tokens the team selects as high-potential pump.fun projects
+- Tokens bought directly by treasury using trading fees — high-potential pump.fun projects
 - Community votes on the next pick (see Voting section)
+- Split: 100% distributed to holders weekly, no lock
 
 ## Voting System
 - **Platform:** Realms (SPL Governance) — realms.today
@@ -26,24 +28,23 @@ Trading fees from $MEME token → Treasury → Buy pump.fun tokens → Distribut
 
 ## Distribution Model
 
-### Split
-- **25%** of distributed tokens → Locked for 1 year (vesting)
-- **75%** of distributed tokens → Liquid, to eligible holders
+### Split (per category — see Treasury Categories)
+- **Our Pick:** 100% distributed to holders, no lock
+- **Collab/Partnership:** 75% distributed to holders, 25% held long-term in treasury
 
 ### Schedule
 - **Weekly** distributions
 
 ### Tools
-- **Vesting (25%):** Streamflow vesting contract, 1-year cliff — 0.17 SOL one-time
-- **Liquid (75%):** Streamflow claim portal — holders pay ~0.01 SOL to claim
+- **Liquid distribution:** Streamflow claim portal — holders pay ~0.01 SOL to claim
+- **Treasury hold (25% of partner tokens):** stays in treasury wallet, no vesting contract needed
 - **Snapshot:** Helius API (free) — taken before each weekly distribution
 - **Eligibility filter:** Wallets with ≥ $10 worth of $MEME at snapshot time
 
 ### Estimated Cost (first 3 months)
-- Streamflow vesting setup: ~0.17 SOL (one-time)
 - Helius snapshots: Free
 - Per-holder cost to project: 0 SOL
-- **Total: ~1 SOL**
+- **Total: ~0 SOL**
 
 ## Treasury Website Display
 Each token in treasury shows:

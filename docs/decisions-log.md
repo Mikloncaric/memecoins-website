@@ -60,3 +60,8 @@ Chronological log of all key project decisions.
 **Odluka:** Prebacujemo s AnonCoin na **pump.fun**  
 **Razlog:** AnonCoin ima premalo aktivnih coinova. Pump.fun je dominantna Solana launchpad platforma (~50-70% market share), a creator fee (0.3% na bonding curveu) aktivan je odmah od lansiranja — bez čekanja na graduation kao kod AnonCoina (420 SOL).  
 **Posljedice:** Sve reference na AnonCoin u index.html, treasury.html i treasury.js zamijenjene s pump.fun (kao launch platforma i kao kategorija tokena koje treasury kupuje). Fee info bar na indexu više ne prikazuje konkretne postotke/pragove — live stranica ne treba te brojke.
+
+### Treasury — distribucija po kategorijama (promjena)
+**Odluka:** Split sad ovisi o kategoriji — "Our Pick" (tokeni koje treasury kupuje) = 100% holderima, bez locka. "Collab/Partnership" (tokeni od partnera) = 75% holderima, 25% trajno drži MEMECOINS treasury.  
+**Razlog:** Trajno držanje partnerskih tokena signalizira partnerima dugoročnu posvećenost — kako MEMECOINS community raste, raste i potražnja za njihovim tokenom.  
+**Posljedice:** Generic "25% Locked (1 god) / 75% Distributed" distribution bar uklonjen s treasury.html (split je sad prikazan po kategoriji u opisu). Streamflow vesting contract više nije potreban — 25% partnerskih tokena jednostavno ostaje u treasury walletu.
