@@ -10,7 +10,7 @@ which are then distributed to MEMECOINS holders.
 - Priority: pump.fun ecosystem first, other chains later (maybe, not mandatory)
 
 ## Token
-- **Name:** MEMECOINS ($MEME)
+- **Name:** MEMECOINS ($MEMES)
 - **Platform:** pump.fun
 - **Chain:** Solana
 - **CA:** TBD — not launched yet
