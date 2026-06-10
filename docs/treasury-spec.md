@@ -4,15 +4,18 @@
 Trading fees from $MEME token → Treasury → Buy pump.fun tokens → Distribute to holders
 
 ## Holder Eligibility
-- Minimum **$10 worth of $MEME** to qualify for weekly distribution
-- Verified via Helius API snapshot before each distribution
+- Minimum **$10 worth of $MEME**, held continuously for the 7 days before distribution AND at the moment of distribution
+- Prevents buy-right-before-snapshot-then-sell gaming
+- Verified via Helius API snapshots (start of window + distribution moment)
 
 ## Treasury Categories
 
 ### 1. Collab / Partnership
-- Tokens from official partnerships and collaborations
+- Tokens received from official partnerships and collaborations (not bought by treasury)
 - Selected by team
-- Split: 75% distributed to holders weekly, 25% held long-term in MEMECOINS treasury
+- Split:
+  - **50%** distributed weekly to eligible $MEME holders (see Holder Eligibility)
+  - **50%** held by treasury for 1 year, then distributed exclusively to long-term $MEME holders (continuously held $MEME for 1+ year) as a loyalty reward
 
 ### 2. Our Pick
 - Tokens bought directly by treasury using trading fees — high-potential pump.fun projects
@@ -29,17 +32,19 @@ Trading fees from $MEME token → Treasury → Buy pump.fun tokens → Distribut
 ## Distribution Model
 
 ### Split (per category — see Treasury Categories)
-- **Our Pick:** 100% distributed to holders, no lock
-- **Collab/Partnership:** 75% distributed to holders, 25% held long-term in treasury
+- **Our Pick:** 100% distributed weekly to eligible holders, no lock
+- **Collab/Partnership:** 50% distributed weekly to eligible holders, 50% held 1 year then distributed only to long-term (1+ year) $MEME holders
 
 ### Schedule
-- **Weekly** distributions
+- **Weekly** — regular distribution pool (Our Pick 100%, Collab/Partnership 50%)
+- **Annual** — Collab/Partnership long-term holder pool, 1 year after treasury receives the tokens
 
 ### Tools
 - **Liquid distribution:** Streamflow claim portal — holders pay ~0.01 SOL to claim
-- **Treasury hold (25% of partner tokens):** stays in treasury wallet, no vesting contract needed
-- **Snapshot:** Helius API (free) — taken before each weekly distribution
-- **Eligibility filter:** Wallets with ≥ $10 worth of $MEME at snapshot time
+- **Treasury hold (50% of partner tokens, 1yr):** stays in treasury wallet, no vesting contract needed
+- **Snapshot:** Helius API (free) — weekly (window start + distribution moment) for regular eligibility; ongoing snapshots to track 1+ year continuous holders for the long-term pool
+- **Eligibility filter:** Wallets with ≥ $10 worth of $MEME, held continuously through the snapshot window
+- **Long-term filter:** Wallets holding $MEME continuously for 1+ year (Collab/Partnership held-portion only)
 
 ### Estimated Cost (first 3 months)
 - Helius snapshots: Free
