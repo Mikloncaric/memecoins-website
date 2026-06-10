@@ -1,7 +1,7 @@
 # Treasury System — Specification
 
 ## Concept
-Trading fees from $MEME token → Treasury → Buy AnonCoin tokens → Distribute to holders
+Trading fees from $MEME token → Treasury → Buy pump.fun tokens → Distribute to holders
 
 ## Holder Eligibility
 - Minimum **$10 worth of $MEME** to qualify for weekly distribution
@@ -14,7 +14,7 @@ Trading fees from $MEME token → Treasury → Buy AnonCoin tokens → Distribut
 - Selected by team
 
 ### 2. Our Pick
-- Tokens the team selects as high-potential AnonCoin projects
+- Tokens the team selects as high-potential pump.fun projects
 - Community votes on the next pick (see Voting section)
 
 ## Voting System

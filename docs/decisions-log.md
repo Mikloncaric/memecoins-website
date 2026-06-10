@@ -51,3 +51,12 @@ Chronological log of all key project decisions.
 ### Repo struktura
 **Odluka:** Jedan repo, dvije mape — website u korijenu, projektne bilješke u /docs  
 **Razlog:** Sve na jednom mjestu, verzioniranje svega
+
+---
+
+## 2026-06-10
+
+### Platforma za launch — promjena odluke
+**Odluka:** Prebacujemo s AnonCoin na **pump.fun**  
+**Razlog:** AnonCoin ima premalo aktivnih coinova. Pump.fun je dominantna Solana launchpad platforma (~50-70% market share), a creator fee (0.3% na bonding curveu) aktivan je odmah od lansiranja — bez čekanja na graduation kao kod AnonCoina (420 SOL).  
+**Posljedice:** Sve reference na AnonCoin u index.html, treasury.html i treasury.js zamijenjene s pump.fun (kao launch platforma i kao kategorija tokena koje treasury kupuje). Fee info bar na indexu više ne prikazuje konkretne postotke/pragove — live stranica ne treba te brojke.
