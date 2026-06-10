@@ -113,6 +113,14 @@ if (resetBtn) {
 loadFeeStats();
 setInterval(loadFeeStats, 30_000);
 
+// Admin panel hidden by default — append ?admin=1 to the URL to show it.
+// (The /api endpoints are the real gate via ADMIN_SECRET; this just keeps
+// the form from being visible/discoverable to regular visitors.)
+if (new URLSearchParams(location.search).get('admin') === '1') {
+  const adminBar = document.getElementById('fee-admin-bar');
+  if (adminBar) adminBar.style.display = '';
+}
+
 // ===== TREASURY DATA =====
 // When tokens are added to treasury, populate this array.
 // Each token entry:
