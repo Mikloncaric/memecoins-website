@@ -10,7 +10,7 @@ const redis = new Redis({
 // memory per warm instance and flushed periodically instead.
 let pendingLamports = 0;
 let lastFlush = 0;
-const FLUSH_INTERVAL_MS = 15_000;
+const FLUSH_INTERVAL_MS = 60_000;
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
