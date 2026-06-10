@@ -4,6 +4,14 @@ const redis = new Redis({
   token: process.env.KV_REST_API_TOKEN,
 });
 
+// WATCHED_WALLET is currently a high-volume platform-wide account — Helius
+// calls this endpoint ~50x/sec. Writing to Redis on every call burns through
+// Upstash's request quota in minutes, so incoming amounts are accumulated in
+// memory per warm instance and flushed periodically instead.
+let pendingLamports = 0;
+let lastFlush = 0;
+const FLUSH_INTERVAL_MS = 15_000;
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
@@ -23,37 +31,22 @@ module.exports = async function handler(req, res) {
     // Also catch SPL token fee accounts if needed later
   }
 
-  try {
-    // Debug logging — capture raw payload shape so we can verify Helius is
-    // calling this endpoint and where the fee transfers actually show up.
-    await Promise.all([
-      redis.incr('debug_webhook_count'),
-      redis.set('debug_last_webhook', JSON.stringify({
-        receivedAt: new Date().toISOString(),
-        txCount: transactions.length,
-        sample: transactions.slice(0, 3).map(tx => ({
-          type: tx.type,
-          feePayer: tx.feePayer,
-          nativeTransfers: tx.nativeTransfers,
-          tokenTransfers: tx.tokenTransfers,
-          accountData: (tx.accountData ?? []).map(a => ({
-            account: a.account,
-            nativeBalanceChange: a.nativeBalanceChange,
-          })),
-        })),
-      })),
-    ]);
+  pendingLamports += incomingLamports;
 
-    if (incomingLamports > 0) {
-      const sol = incomingLamports / 1_000_000_000;
+  const now = Date.now();
+  if (pendingLamports > 0 && now - lastFlush > FLUSH_INTERVAL_MS) {
+    const sol = pendingLamports / 1_000_000_000;
+    pendingLamports = 0;
+    lastFlush = now;
+    try {
       await Promise.all([
         redis.incrbyfloat('weekly_fees', sol),
         redis.incrbyfloat('total_fees_received', sol),
       ]);
+    } catch (e) {
+      // Redis quota/outage shouldn't surface as a 5xx to Helius on every call.
+      return res.status(200).json({ received: incomingLamports, redisError: e.message });
     }
-  } catch (e) {
-    // Redis quota/outage shouldn't surface as a 5xx to Helius on every call.
-    return res.status(200).json({ received: incomingLamports, redisError: e.message });
   }
 
   res.status(200).json({ received: incomingLamports });
