@@ -13,6 +13,26 @@ module.exports = async function handler(req, res) {
   const watchedWallet = process.env.WATCHED_WALLET;
   if (!watchedWallet) return res.status(500).json({ error: 'WATCHED_WALLET not set' });
 
+  // Debug logging — capture raw payload shape so we can verify Helius is
+  // calling this endpoint and where the fee transfers actually show up.
+  await Promise.all([
+    redis.incr('debug_webhook_count'),
+    redis.set('debug_last_webhook', JSON.stringify({
+      receivedAt: new Date().toISOString(),
+      txCount: transactions.length,
+      sample: transactions.slice(0, 3).map(tx => ({
+        type: tx.type,
+        feePayer: tx.feePayer,
+        nativeTransfers: tx.nativeTransfers,
+        tokenTransfers: tx.tokenTransfers,
+        accountData: (tx.accountData ?? []).map(a => ({
+          account: a.account,
+          nativeBalanceChange: a.nativeBalanceChange,
+        })),
+      })),
+    })),
+  ]);
+
   let incomingLamports = 0;
 
   for (const tx of transactions) {
