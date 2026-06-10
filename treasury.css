@@ -58,48 +58,6 @@
   color: var(--text-muted);
 }
 
-/* ===== DISTRIBUTION BAR ===== */
-.distribution-bar {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 1.2rem 1.5rem;
-}
-
-.dist-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.dist-item {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.dist-icon { font-size: 1.4rem; }
-
-.dist-item strong {
-  display: block;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.dist-item span {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.dist-divider {
-  font-size: 1.5rem;
-  color: var(--gold-dim);
-  font-weight: 700;
-}
-
 /* ===== CATEGORY SECTIONS ===== */
 #collab-section { background: var(--bg); }
 #ourpick-section { background: var(--bg2); }
@@ -716,12 +674,6 @@
 @media (max-width: 768px) {
   #treasury-header { padding: 6rem 1.2rem 2.5rem; }
 
-  .fee-stats-grid { grid-template-columns: 1fr; }
-  .fee-admin-form { flex-direction: column; }
-  .fee-input, .fee-input-sm { flex: 1 1 100%; min-width: unset; }
-  .purchase-list-item { flex-direction: column; align-items: flex-start; }
-  .purchase-amount { text-align: left; }
-
   .treasury-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -730,9 +682,11 @@
 
   .t-stat { min-width: unset; padding: 1rem 1.2rem; }
 
-  .dist-inner { flex-direction: column; gap: 1rem; text-align: center; }
-  .dist-divider { display: none; }
-  .dist-item { justify-content: center; }
+  .fee-stats-grid { grid-template-columns: 1fr; }
+  .fee-admin-form { flex-direction: column; }
+  .fee-input, .fee-input-sm { flex: 1 1 100%; min-width: unset; }
+  .purchase-list-item { flex-direction: column; align-items: flex-start; }
+  .purchase-amount { text-align: left; }
 
   .vote-candidates { max-width: 100%; }
 
