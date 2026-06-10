@@ -1,21 +1,26 @@
 # Treasury System — Specification
 
 ## Concept
-Trading fees from $MEME token → Treasury → Buy AnonCoin tokens → Distribute to holders
+Trading fees from $MEMES token → Treasury → Buy pump.fun tokens → Distribute to holders
 
 ## Holder Eligibility
-- Minimum **$10 worth of $MEME** to qualify for weekly distribution
-- Verified via Helius API snapshot before each distribution
+- Minimum **$10 worth of $MEMES**, held continuously for the 7 days before distribution AND at the moment of distribution
+- Prevents buy-right-before-snapshot-then-sell gaming
+- Verified via Helius API snapshots (start of window + distribution moment)
 
 ## Treasury Categories
 
 ### 1. Collab / Partnership
-- Tokens from official partnerships and collaborations
+- Tokens received from official partnerships and collaborations (not bought by treasury)
 - Selected by team
+- Split:
+  - **50%** distributed weekly to eligible $MEMES holders (see Holder Eligibility)
+  - **50%** held by treasury for 1 year, then distributed exclusively to long-term $MEMES holders (continuously held $MEMES for 1+ year) as a loyalty reward
 
 ### 2. Our Pick
-- Tokens the team selects as high-potential AnonCoin projects
+- Tokens bought directly by treasury using trading fees — high-potential pump.fun projects
 - Community votes on the next pick (see Voting section)
+- Split: 100% distributed to holders weekly, no lock
 
 ## Voting System
 - **Platform:** Realms (SPL Governance) — realms.today
@@ -26,24 +31,25 @@ Trading fees from $MEME token → Treasury → Buy AnonCoin tokens → Distribut
 
 ## Distribution Model
 
-### Split
-- **25%** of distributed tokens → Locked for 1 year (vesting)
-- **75%** of distributed tokens → Liquid, to eligible holders
+### Split (per category — see Treasury Categories)
+- **Our Pick:** 100% distributed weekly to eligible holders, no lock
+- **Collab/Partnership:** 50% distributed weekly to eligible holders, 50% held 1 year then distributed only to long-term (1+ year) $MEMES holders
 
 ### Schedule
-- **Weekly** distributions
+- **Weekly** — regular distribution pool (Our Pick 100%, Collab/Partnership 50%)
+- **Annual** — Collab/Partnership long-term holder pool, 1 year after treasury receives the tokens
 
 ### Tools
-- **Vesting (25%):** Streamflow vesting contract, 1-year cliff — 0.17 SOL one-time
-- **Liquid (75%):** Streamflow claim portal — holders pay ~0.01 SOL to claim
-- **Snapshot:** Helius API (free) — taken before each weekly distribution
-- **Eligibility filter:** Wallets with ≥ $10 worth of $MEME at snapshot time
+- **Liquid distribution:** Streamflow claim portal — holders pay ~0.01 SOL to claim
+- **Treasury hold (50% of partner tokens, 1yr):** stays in treasury wallet, no vesting contract needed
+- **Snapshot:** Helius API (free) — weekly (window start + distribution moment) for regular eligibility; ongoing snapshots to track 1+ year continuous holders for the long-term pool
+- **Eligibility filter:** Wallets with ≥ $10 worth of $MEMES, held continuously through the snapshot window
+- **Long-term filter:** Wallets holding $MEMES continuously for 1+ year (Collab/Partnership held-portion only)
 
 ### Estimated Cost (first 3 months)
-- Streamflow vesting setup: ~0.17 SOL (one-time)
 - Helius snapshots: Free
 - Per-holder cost to project: 0 SOL
-- **Total: ~1 SOL**
+- **Total: ~0 SOL**
 
 ## Treasury Website Display
 Each token in treasury shows:

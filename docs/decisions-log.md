@@ -51,3 +51,22 @@ Chronological log of all key project decisions.
 ### Repo struktura
 **Odluka:** Jedan repo, dvije mape — website u korijenu, projektne bilješke u /docs  
 **Razlog:** Sve na jednom mjestu, verzioniranje svega
+
+---
+
+## 2026-06-10
+
+### Platforma za launch — promjena odluke
+**Odluka:** Prebacujemo s AnonCoin na **pump.fun**  
+**Razlog:** AnonCoin ima premalo aktivnih coinova. Pump.fun je dominantna Solana launchpad platforma (~50-70% market share), a creator fee (0.3% na bonding curveu) aktivan je odmah od lansiranja — bez čekanja na graduation kao kod AnonCoina (420 SOL).  
+**Posljedice:** Sve reference na AnonCoin u index.html, treasury.html i treasury.js zamijenjene s pump.fun (kao launch platforma i kao kategorija tokena koje treasury kupuje). Fee info bar na indexu više ne prikazuje konkretne postotke/pragove — live stranica ne treba te brojke.
+
+### Treasury — distribucija po kategorijama (finalizirano)
+**Odluka:** Split ovisi o kategoriji. "Our Pick" (tokeni koje treasury kupuje) = 100% holderima tjedno, bez locka. "Collab/Partnership" (tokeni primljeni od partnera, ne kupljeni) = 50% odmah/tjedno svim eligible holderima, 50% drži treasury 1 godinu pa distribuira isključivo $MEME holderima koji kontinuirano drže $MEME 1+ godinu (loyalty reward). Dodatno: opća eligibility (≥$10 $MEME) sad zahtijeva kontinuirano držanje kroz zadnjih 7 dana + u trenutku distribucije (anti-gaming, sprječava buy-and-dump oko snapshota).  
+**Razlog:** Long-term holderi trebaju biti nagrađeni dodatno — gradi lojalnost, smanjuje sell-pressure i signalizira partnerima dugoročnu posvećenost (kako MEMECOINS community raste, raste i potražnja za njihovim tokenom).  
+**Posljedice:** Generic "25% Locked (1 god) / 75% Distributed" distribution bar uklonjen s treasury.html (split je sad prikazan po kategoriji u opisu). Streamflow vesting contract nije potreban za 50% koje treasury drži 1 godinu — ostaje u treasury walletu. treasury-spec.md ažuriran (Holder Eligibility, Treasury Categories, Distribution Model).
+
+### Token ticker — promjena s $MEME na $MEMES
+**Odluka:** Token ticker mijenja se iz $MEME u **$MEMES**. Projekt i dalje MEMECOINS.  
+**Razlog:** $MEME je već zauzet od strane velikog postojećeg projekta — isti ticker bi izazvao zabunu i sukob brendova. $MEMES je slobodan na Solani.  
+**Posljedice:** Sve reference na $MEME u index.html, treasury.html, treasury-spec.md, project-overview.md i CLAUDE.md zamijenjene s $MEMES (JSON-LD alternateName, Tokenomics naslov, fee/eligibility tekstovi, pending X display name). X bio treba ručno ažuriranje ($MEME holders → $MEMES holders). Historical entries u ovom logu ostaju $MEME (odražavaju stanje u trenutku odluke).
