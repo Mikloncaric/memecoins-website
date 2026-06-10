@@ -156,7 +156,7 @@ function openModal(token) {
 
   // Buy link
   const buyBtn = document.getElementById('modal-buy');
-  buyBtn.href = token.ca ? `https://anoncoin.it/token/${token.ca}` : '#';
+  buyBtn.href = token.ca ? `https://pump.fun/coin/${token.ca}` : '#';
 
   // Open overlay
   document.getElementById('modal-overlay').classList.add('open');

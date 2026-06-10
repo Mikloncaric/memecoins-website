@@ -1,17 +1,17 @@
 # MEMECOINS — Project Overview
 
 ## Concept
-MEMECOINS is a token launching on AnonCoin that acts as a hub for the meme coin ecosystem.
-Primary utility: trading fees fund the purchase of legitimate small-cap AnonCoin tokens,
+MEMECOINS is a token launching on pump.fun that acts as a hub for the meme coin ecosystem.
+Primary utility: trading fees fund the purchase of legitimate pump.fun tokens,
 which are then distributed to MEMECOINS holders.
 
 ## Strategic Goal
-- Get official support from the AnonCoin team
-- Priority: AnonCoin ecosystem first, other chains later (maybe, not mandatory)
+- Launch on pump.fun — the most active Solana launchpad, creator fee active from day one (no graduation wait)
+- Priority: pump.fun ecosystem first, other chains later (maybe, not mandatory)
 
 ## Token
 - **Name:** MEMECOINS ($MEME)
-- **Platform:** AnonCoin (anoncoin.it)
+- **Platform:** pump.fun
 - **Chain:** Solana
 - **CA:** TBD — not launched yet
 - **Launch type:** Fair launch (0% team allocation)
