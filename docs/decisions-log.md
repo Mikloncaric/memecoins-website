@@ -70,3 +70,17 @@ Chronological log of all key project decisions.
 **Odluka:** Token ticker mijenja se iz $MEME u **$MEMES**. Projekt i dalje MEMECOINS.  
 **Razlog:** $MEME je već zauzet od strane velikog postojećeg projekta — isti ticker bi izazvao zabunu i sukob brendova. $MEMES je slobodan na Solani.  
 **Posljedice:** Sve reference na $MEME u index.html, treasury.html, treasury-spec.md, project-overview.md i CLAUDE.md zamijenjene s $MEMES (JSON-LD alternateName, Tokenomics naslov, fee/eligibility tekstovi, pending X display name). X bio treba ručno ažuriranje ($MEME holders → $MEMES holders). Historical entries u ovom logu ostaju $MEME (odražavaju stanje u trenutku odluke).
+
+---
+
+## 2026-06-11
+
+### Email kontakt
+**Odluka:** Kupljen contact@memecoinssol.xyz (Namecheap)  
+**Posljedice:** Dodan u footer na index.html, treasury.html i gaming-hub.html (dev grana, čeka pregled prije merge u master)
+
+### Gaming Hub — nova utility ideja (koncept)
+**Odluka:** Nova planirana sekcija "$MEMES Gaming Hub" — dio treasury rewardova konvertira se u real-world gift cardove/kredit (gaming, kino, tematski parkovi, sport) i distribuira holderima, uz postojeći pump.fun token reward sustav.  
+**Razlog:** Memecoin = zabava — real-world "spend on fun" utility nadograđuje postojeći flywheel i dodatno diferencira $MEMES.  
+**Status:** Koncept faza. Mehanizam distribucije (raffle vs. redemption, % alokacije) nije odlučen — definirat će se u whitepaperu prije lansiranja featurea.  
+**Posljedice:** Dodana basic "in development" stranica gaming-hub.html (dev grana) + nav link (s "Soon" badge) na index.html i treasury.html + roadmap stavka u Phase 3 (Expansion).

@@ -90,6 +90,20 @@ nav {
 
 .btn-nav:hover { background: var(--green-light); transform: translateY(-1px); }
 
+.nav-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--teal-light);
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
 /* ===== HERO ===== */
 #hero {
   position: relative;
@@ -588,6 +602,27 @@ section h2 {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 2rem;
+}
+
+/* ===== GAMING HUB PAGE ===== */
+#gaming-hub-header {
+  padding: 8rem 1.5rem 3rem;
+  background: radial-gradient(ellipse at center, #0d1a0d 0%, var(--bg) 70%);
+}
+
+#gaming-hub-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #fff 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+#gaming-hub-header .section-desc {
+  margin: 0 auto;
 }
 
 /* ===== FOOTER ===== */
