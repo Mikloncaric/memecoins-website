@@ -57,3 +57,11 @@ Status legend: ✅ posted · ⬜ not yet posted
 23. ⬜ "The Fun IRL Hub isn't just about $MEMES. The plan is to bring memecoin communities together, so holders across different coins can turn their bags into real world fun too."
 
 24. ⬜ "If you think memecoins should be fun AND useful, both on-chain and IRL, you're in the right place. Treasury rewards: live from launch. Fun IRL Hub: in development. Follow along. 🟢👑"
+
+---
+
+## #memecoinsoul / July teasers
+
+25. ⬜ "#memecoinsoul: the soul of memecoins, now headed IRL. $MEMES launches in July on pump.fun. 🟢"
+
+26. ⬜ "$MEMES is coming in July. Fees active from trade #1, treasury rewards from week one, and the Fun IRL Hub right behind it. #memecoinsoul"
