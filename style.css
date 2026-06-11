@@ -515,6 +515,12 @@ section h2 {
   word-break: break-all;
 }
 
+.ca-note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
 /* ===== ROADMAP ===== */
 .roadmap {
   display: grid;
