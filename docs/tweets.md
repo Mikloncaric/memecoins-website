@@ -1,0 +1,59 @@
+# Building-in-Public Tweet Series
+
+24 draft tweets (English) for the @memecoinsoul announcement series. Tweets 1-16 cover launch, treasury and flywheel mechanics (rough order: teaser → mechanics → governance → brand reveal → roadmap → CTA). Tweets 17-24 focus on the Fun IRL Hub / memecoins IRL theme, tied back to the existing holder rewards. Order within each group is logical, but can be mixed/scheduled as needed.
+
+Status legend: ✅ posted · ⬜ not yet posted
+
+---
+
+1. ✅ (posted 2026-06-10) "Most memecoins have one job: pump. Once the hype fades, there's nothing left for holders. We're building $MEMES differently. 👀 More soon."
+
+2. ⬜ "$MEMES is launching on pump.fun. Every trade generates fees — and unlike most tokens, those fees start working for holders from day one, not after some 'graduation' milestone."
+
+3. ⬜ "How it works: 50% of trading fees go into a treasury that buys other promising pump.fun tokens. Those get airdropped to $MEMES holders — weekly. The other 50% funds development. Simple, transparent, on-chain."
+
+4. ⬜ "Hold $MEMES → treasury buys tokens with trading fees → tokens get distributed to holders → more reasons to hold. That's the loop. We call it the Meme Economy flywheel."
+
+5. ⬜ "Underrated detail: our creator fee is active from the very first trade on the bonding curve. No waiting for graduation, no 'eventually.' The treasury starts filling immediately."
+
+6. ⬜ "$MEMES holders don't just sit and wait — you vote on what the treasury buys next. On-chain voting via Realms, weighted by how much you hold. Your bag, your voice."
+
+7. ⬜ "Treasury runs two tracks: 'Our Picks' — community-voted tokens, 100% airdropped to holders weekly, no strings. And 'Collab/Partnership' tokens — 50% weekly + 50% locked a year as a long-term holder reward."
+
+8. ⬜ "Most 'utility' memecoins promise something 12 months out. $MEMES doesn't need the promise — the mechanism runs from launch. Fees in, tokens out, holders rewarded."
+
+9. ⬜ "Been deep in the design cave: gold & teal, Solana gradients, dark theme done right. The site is basically live, including a treasury dashboard with a real-time fee tracker. Sneak peek dropping soon. 👇"
+
+10. ⬜ "Building $MEMES in public. The treasury dashboard + live fee tracker are already wired up and being stress-tested before launch. You'll be able to watch the flywheel spin in real time."
+
+11. ⬜ "Whitepaper is in progress — full breakdown of the fee mechanism, holder eligibility, voting system, and treasury rules. Dropping before launch. No surprises, no fine print."
+
+12. ⬜ "Roadmap: Phase 1 = foundation (site, docs, community). Phase 2 = launch + first treasury buys. Phase 3 = flywheel at full speed. Closing out Phase 1 now."
+
+13. ⬜ "Not every wallet qualifies for weekly distributions — there's a simple holding requirement to keep things fair and discourage in-and-out gaming. Full rules in the whitepaper."
+
+14. ⬜ "We're not promising 100x. We're promising a mechanism: trading activity → treasury → rewards back to holders, automatically, every week. The rest is up to the community."
+
+15. ⬜ "If 'a memecoin that pays holders in other memecoins, starting from trade #1' sounds interesting — this is the account to follow. Getting close. 🟢"
+
+16. ⬜ "$MEMES: Hub of the Meme Economy. Built on pump.fun, powered by Solana, owned by the community. Launch incoming. 🟢👑"
+
+---
+
+## Fun IRL Hub / Memecoins IRL series
+
+17. ⬜ "Wdyt: what should memecoins actually do? Are they only here for fun, or is there more to it? 👀"
+
+18. ⬜ "Memecoins are not only here for fun, they're here for IRL use too. That's exactly what the Fun IRL Hub is about."
+
+19. ⬜ "$MEMES for IRL memecoins. We're building a hub that turns memecoins into real world fun: gift cards, vouchers, credit and more. Join us. 🟢"
+
+20. ⬜ "Two pillars of $MEMES. The treasury buys pump.fun tokens and sends them to holders weekly, active from day one. The Fun IRL Hub is next: turning memecoins into real world fun. Rewards now, IRL fun coming."
+
+21. ⬜ "Memes are fun. So are the rewards. And we're not stopping there: the plan is to bring that fun into real life too, through the Fun IRL Hub."
+
+22. ⬜ "Memecoins are one of the biggest communities in crypto, and crypto is the next generation of payments. We want to help bring memecoins into everyday spending. That's the whole idea behind the Fun IRL Hub."
+
+23. ⬜ "The Fun IRL Hub isn't just about $MEMES. The plan is to bring memecoin communities together, so holders across different coins can turn their bags into real world fun too."
+
+24. ⬜ "If you think memecoins should be fun AND useful, both on-chain and IRL, you're in the right place. Treasury rewards: live from launch. Fun IRL Hub: in development. Follow along. 🟢👑"
