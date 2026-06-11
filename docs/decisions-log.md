@@ -86,6 +86,15 @@ Chronological log of all key project decisions.
 **Posljedice:** Dodana basic "in development" stranica gaming-hub.html (dev grana) + nav link (s "Soon" badge) na index.html i treasury.html + roadmap stavka u Phase 3 (Expansion).
 
 ### X profil — name & bio update (Gaming Hub tema)
-**Odluka:** Display name → `MEMECOINS ($MEMES) | Meme Economy, IRL Fun`. Bio prva linija → "Memes are fun. So are the rewards — Gaming Hub: real-world fun soon" (linije 2-3 nepromijenjene: fee/distribution + "Launching soon on pump.fun").  
+**Odluka:** Display name → `MEMECOINS ($MEMES) | Meme Economy, IRL Fun`. Bio prva linija → "Memes are fun. So are the rewards. Gaming Hub: real-world fun soon" (linije 2-3 nepromijenjene: fee/distribution + "Launching soon on pump.fun").  
 **Razlog:** Uskladiti X profil s novim Gaming Hub konceptom (real-world fun utility), zadržavajući postojeće fee/launch poruke.  
 **Status:** Bio tekst spreman za ručni update odmah. Display name čeka X verifikaciju (postojeće ograničenje).
+
+### Gaming Hub — koncept revizija (svi memecoini, ne samo $MEMES)
+**Odluka:** Gaming Hub koncept proširen. Umjesto konvertiranja dijela $MEMES treasury rewardova u gift cardove za holdere, Hub će u kasnijoj fazi omogućiti korisnicima da bilo koji memecoin (ne samo $MEMES/pump.fun) zamijene za gift cardove, vouchere, spending credit i moguće druge oblike potrošnje, kroz kategorije gaming, kino, tematski parkovi i sport.  
+**Razlog:** Veća vizija. Memecoini su velik dio crypta, a crypto je sljedeća generacija modela plaćanja. $MEMES želi omogućiti memecoinima IRL upotrebu i dovesti ih tamo gdje pripadaju. Postojeći treasury reward sustav za $MEMES holdere ostaje nepromijenjen i odvojen od ovog koncepta.  
+**Posljedice:** gaming-hub.html prepisan (header, "Spend the fun, not just hold it" opis, sekcija "How It Fits" preimenovana u "The Bigger Picture" s novim tekstom o memecoinima kao budućnosti plaćanja). Roadmap Phase 3 na index.html ažuriran u "Gaming & Fun Hub: spend memecoins IRL". Mehanizam i dalje TBD u whitepaperu.
+
+### Stil pisanja — bez crtica
+**Odluka:** U svim tekstovima (web copy, X bio, whitepaper, tweetovi, docs) izbjegavati crtice, posebno em-dash "—". Koristiti točke, dvotočke ili zareze.  
+**Razlog:** Korisnička preferencija za stil pisanja.
