@@ -65,3 +65,13 @@ Status legend: ✅ posted · ⬜ not yet posted
 25. ⬜ "#memecoinsoul: the soul of memecoins, now headed IRL. $MEMES launches in July on pump.fun. 🟢"
 
 26. ⬜ "$MEMES is coming in July. Fees active from trade #1, treasury rewards from week one, and the Fun IRL Hub right behind it. #memecoinsoul"
+
+---
+
+## CA verification / anti-scam (pre-launch PSA, repeat often)
+
+27. ⬜ "Heads up for launch day: the ONLY official $MEMES CA will be posted on this account (@memecoinsoul, pinned) and on memecoinssol.xyz at the same time. If you see it anywhere else first, even with our name and logo, it's not us."
+
+28. ⬜ "Quick PSA before launch: don't trust DMs, comments, or copycat accounts with a 'CA'. We will never DM you first. The real $MEMES CA drops here and on the website, together, the moment we go live. 🟢"
+
+29. ⬜ "$MEMES launches in July. One rule for launch day: the real CA comes from @memecoinsoul (pinned) and memecoinssol.xyz, at the same time, nothing else. Save this tweet. #memecoinsoul"
