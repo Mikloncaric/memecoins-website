@@ -20,12 +20,12 @@ if (hamburger && navLinks) {
 
 // Smooth nav highlight on scroll
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
+const navAnchors = document.querySelectorAll('.nav-links a');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      navLinks.forEach(link => {
+      navAnchors.forEach(link => {
         link.style.color = link.getAttribute('href') === `#${entry.target.id}`
           ? 'var(--gold)'
           : '';
