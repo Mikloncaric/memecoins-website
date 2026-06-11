@@ -84,3 +84,8 @@ Chronological log of all key project decisions.
 **Razlog:** Memecoin = zabava — real-world "spend on fun" utility nadograđuje postojeći flywheel i dodatno diferencira $MEMES.  
 **Status:** Koncept faza. Mehanizam distribucije (raffle vs. redemption, % alokacije) nije odlučen — definirat će se u whitepaperu prije lansiranja featurea.  
 **Posljedice:** Dodana basic "in development" stranica gaming-hub.html (dev grana) + nav link (s "Soon" badge) na index.html i treasury.html + roadmap stavka u Phase 3 (Expansion).
+
+### X profil — name & bio update (Gaming Hub tema)
+**Odluka:** Display name → `MEMECOINS ($MEMES) | Meme Economy, IRL Fun`. Bio prva linija → "Memes are fun. So are the rewards — Gaming Hub: real-world fun soon" (linije 2-3 nepromijenjene: fee/distribution + "Launching soon on pump.fun").  
+**Razlog:** Uskladiti X profil s novim Gaming Hub konceptom (real-world fun utility), zadržavajući postojeće fee/launch poruke.  
+**Status:** Bio tekst spreman za ručni update odmah. Display name čeka X verifikaciju (postojeće ograničenje).
