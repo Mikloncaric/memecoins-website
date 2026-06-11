@@ -86,7 +86,7 @@ Chronological log of all key project decisions.
 **Posljedice:** Dodana basic "in development" stranica gaming-hub.html (dev grana) + nav link (s "Soon" badge) na index.html i treasury.html + roadmap stavka u Phase 3 (Expansion).
 
 ### X profil — name & bio update (Gaming Hub tema)
-**Odluka:** Display name → `MEMECOINS ($MEMES) | Meme Economy, IRL Fun`. Bio prva linija → "Memes are fun. So are the rewards. Gaming Hub: real-world fun soon" (linije 2-3 nepromijenjene: fee/distribution + "Launching soon on pump.fun").  
+**Odluka:** Display name → `MEMECOINS ($MEMES) | Meme Economy, IRL Fun`. Bio prva linija → "Memes are fun. So are the rewards. Fun IRL Hub: real-world fun soon" (linije 2-3 nepromijenjene: fee/distribution + "Launching soon on pump.fun").  
 **Razlog:** Uskladiti X profil s novim Gaming Hub konceptom (real-world fun utility), zadržavajući postojeće fee/launch poruke.  
 **Status:** Bio tekst spreman za ručni update odmah. Display name čeka X verifikaciju (postojeće ograničenje).
 
@@ -98,3 +98,8 @@ Chronological log of all key project decisions.
 ### Stil pisanja — bez crtica
 **Odluka:** U svim tekstovima (web copy, X bio, whitepaper, tweetovi, docs) izbjegavati crtice, posebno em-dash "—". Koristiti točke, dvotočke ili zareze.  
 **Razlog:** Korisnička preferencija za stil pisanja.
+
+### Fun IRL Hub — finalni naziv (uskladen H1/title/meta/roadmap)
+**Odluka:** Hub se sad zove "Fun IRL Hub" posvuda u user-facing tekstu: nav, H1, page title, meta i OG tagovi na gaming-hub.html, roadmap na index.html i whitepaperu, X bio teaser.  
+**Razlog:** "Fun IRL Hub" bolje odražava širi koncept (svi memecoini, ne samo gaming kategorija) i kraći je za nav.  
+**Posljedice:** gaming-hub.html (title, meta description, og:title, H1, header opis), index.html i whitepaper.md roadmap stavka ("Fun IRL Hub: turn memecoins into real-world fun"), X bio teaser ("Gaming Hub: real-world fun soon" → "Fun IRL Hub: real-world fun soon"), CLAUDE.md ažuriran. Interni file naziv (gaming-hub.html), section ID-jevi i sitemap URL ostaju nepromijenjeni, eventualni rename ide kasnije.
