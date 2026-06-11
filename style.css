@@ -516,7 +516,7 @@ section h2 {
 }
 
 .ca-note {
-  margin-top: 1rem;
+  width: 100%;
   font-size: 0.85rem;
   color: var(--text-muted);
 }
