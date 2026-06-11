@@ -258,6 +258,11 @@ section:nth-child(even) { background: var(--bg2); }
 
 .section-inner.centered { text-align: center; }
 
+.section-inner.centered .section-desc {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .section-label {
   display: inline-block;
   font-size: 0.75rem;
@@ -366,14 +371,16 @@ section h2 {
 /* ===== FEE SPLIT ===== */
 .fee-split {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.5rem;
   margin-bottom: 3rem;
 }
 
 .fee-box {
-  width: 100%;
-  max-width: 520px;
+  flex: 1;
+  max-width: 420px;
   background: var(--bg3);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -403,11 +410,19 @@ section h2 {
 .fee-box p { color: var(--text-muted); font-size: 0.9rem; }
 
 .fee-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 2rem;
   color: var(--gold-dim);
   font-weight: 700;
-  padding: 0.6rem 0;
-  text-align: center;
+  padding: 0 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .fee-split { flex-direction: column; align-items: center; }
+  .fee-box { flex: none; width: 100%; max-width: 520px; }
+  .fee-divider { padding: 0.6rem 0; }
 }
 
 /* ===== FLYWHEEL ===== */
