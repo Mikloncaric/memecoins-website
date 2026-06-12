@@ -385,41 +385,6 @@
 .purchase-name { font-weight: 700; font-size: 1.05rem; color: var(--text); }
 .purchase-symbol { font-size: 0.85rem; font-weight: 400; color: var(--text-muted); }
 
-.purchase-ca-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.purchase-ca-full {
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  font-family: monospace;
-  word-break: break-all;
-  text-align: left;
-  flex: 1;
-}
-
-.purchase-copy-btn {
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color 0.2s, color 0.2s;
-}
-
-.purchase-copy-btn:hover { border-color: var(--teal); color: var(--teal-light); }
-.purchase-copy-btn.copied { border-color: var(--green); color: var(--green-light); }
-
 .purchase-spent {
   display: flex;
   flex-direction: column;
@@ -753,29 +718,4 @@
 
   .treasury-stats { grid-template-columns: 1fr 1fr; }
   .t-stat-value { font-size: 1.3rem; }
-}
-
-/* ===== TOAST ===== */
-.memes-toast {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: var(--bg3);
-  border: 1px solid var(--gold);
-  color: var(--text);
-  padding: 0.8rem 1.4rem;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s, transform 0.25s;
-  z-index: 9999;
-  max-width: 90vw;
-  text-align: center;
-}
-
-.memes-toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
 }
