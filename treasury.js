@@ -71,10 +71,6 @@ function renderPurchaseHistory(purchases) {
       <div class="purchase-card">
         ${logoHTML}
         <div class="purchase-name">${p.tokenName} <span class="purchase-symbol">${p.tokenSymbol}</span></div>
-        <div class="purchase-ca-row">
-          <span class="purchase-ca-full">${p.tokenCa}</span>
-          <button class="purchase-copy-btn" data-ca="${p.tokenCa}" title="Copy address" aria-label="Copy contract address">⧉</button>
-        </div>
         <div class="purchase-spent">
           <span class="purchase-usd">$${p.usdSpent.toLocaleString('en-US')}</span>
           <span class="purchase-sol-amount">${p.feesUsed.toFixed(4)} SOL · ${date}</span>
@@ -85,46 +81,12 @@ function renderPurchaseHistory(purchases) {
       </div>`;
   }).join('');
 
-  list.querySelectorAll('.purchase-copy-btn').forEach(btn => {
-    btn.addEventListener('click', () => copyCa(btn.dataset.ca, btn));
-  });
-
   list.querySelectorAll('.purchase-share-btn').forEach(btn => {
-    btn.addEventListener('click', () => sharePurchase(purchases[+btn.dataset.index], btn));
+    btn.addEventListener('click', () => sharePurchase(purchases[+btn.dataset.index]));
   });
 }
 
-// ===== COPY CA =====
-async function copyCa(ca, btn) {
-  try {
-    await navigator.clipboard.writeText(ca);
-    const original = btn.textContent;
-    btn.textContent = '✓';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.textContent = original;
-      btn.classList.remove('copied');
-    }, 1500);
-  } catch (e) {
-    showToast('Could not copy address.');
-  }
-}
-
-// ===== SHARE CARD =====
-const SHARE_COLORS = {
-  bg: '#06060a',
-  bg2: '#0d0d14',
-  bg3: '#13131e',
-  text: '#e8e8f0',
-  textMuted: '#7a7a9a',
-  gold: '#C9A227',
-  goldLight: '#F0C040',
-  teal: '#0AA89E',
-  greenLight: '#22c55e',
-  red: '#ff6b7a',
-  border: 'rgba(201, 162, 39, 0.35)',
-};
-
+// ===== SHARE ON X =====
 function getXHandle(url) {
   try {
     return '@' + new URL(url).pathname.replace(/\//g, '');
@@ -133,232 +95,10 @@ function getXHandle(url) {
   }
 }
 
-function shareTweetText(p) {
+function sharePurchase(p) {
   const handle = p.tokenX ? ' ' + getXHandle(p.tokenX) : '';
-  return `Look at this 👀 The $MEMES treasury just bought ${p.tokenSymbol} with trading fees and distributed it to holders. #memecoins${handle}`;
-}
-
-function loadImageSafe(url) {
-  return new Promise(resolve => {
-    if (!url) return resolve(null);
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = () => resolve(img);
-    img.onerror = () => resolve(null);
-    img.src = url;
-  });
-}
-
-function roundRectPath(ctx, x, y, w, h, r) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.arcTo(x + w, y, x + w, y + h, r);
-  ctx.arcTo(x + w, y + h, x, y + h, r);
-  ctx.arcTo(x, y + h, x, y, r);
-  ctx.arcTo(x, y, x + w, y, r);
-  ctx.closePath();
-}
-
-async function buildShareImage(p) {
-  const W = 1200, H = 675;
-  const canvas = document.createElement('canvas');
-  canvas.width = W;
-  canvas.height = H;
-  const ctx = canvas.getContext('2d');
-
-  await Promise.all([
-    document.fonts.load('700 16px Cinzel'),
-    document.fonts.load('900 16px Cinzel'),
-    document.fonts.load('400 16px Inter'),
-    document.fonts.load('600 16px Inter'),
-    document.fonts.load('700 16px Inter'),
-  ]);
-  await document.fonts.ready;
-
-  // Background
-  const bgGrad = ctx.createLinearGradient(0, 0, W, H);
-  bgGrad.addColorStop(0, SHARE_COLORS.bg2);
-  bgGrad.addColorStop(1, SHARE_COLORS.bg);
-  ctx.fillStyle = bgGrad;
-  ctx.fillRect(0, 0, W, H);
-
-  // Border
-  ctx.strokeStyle = SHARE_COLORS.border;
-  ctx.lineWidth = 2;
-  roundRectPath(ctx, 1, 1, W - 2, H - 2, 24);
-  ctx.stroke();
-
-  // Logo (proxied via wsrv.nl so the DexScreener CDN image can be drawn to canvas without CORS tainting)
-  const logoUrl = p.logo ? `https://wsrv.nl/?url=${encodeURIComponent(p.logo)}&w=240&h=240` : null;
-  const logo = await loadImageSafe(logoUrl);
-  const logoX = 70, logoY = 70, logoSize = 120;
-  ctx.save();
-  ctx.beginPath();
-  ctx.arc(logoX + logoSize / 2, logoY + logoSize / 2, logoSize / 2, 0, Math.PI * 2);
-  ctx.closePath();
-  if (logo) {
-    ctx.clip();
-    ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
-    ctx.restore();
-  } else {
-    ctx.fillStyle = SHARE_COLORS.bg3;
-    ctx.fill();
-    ctx.restore();
-    ctx.fillStyle = SHARE_COLORS.gold;
-    ctx.font = '700 48px Cinzel';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText((p.tokenSymbol || '?').replace('$', '').charAt(0), logoX + logoSize / 2, logoY + logoSize / 2 + 4);
-  }
-  ctx.beginPath();
-  ctx.arc(logoX + logoSize / 2, logoY + logoSize / 2, logoSize / 2, 0, Math.PI * 2);
-  ctx.strokeStyle = SHARE_COLORS.gold;
-  ctx.lineWidth = 3;
-  ctx.stroke();
-
-  // Token name + symbol + CA
-  ctx.textAlign = 'left';
-  ctx.textBaseline = 'alphabetic';
-  ctx.fillStyle = SHARE_COLORS.text;
-  ctx.font = '700 46px Cinzel';
-  ctx.fillText(p.tokenName, logoX + logoSize + 30, logoY + 50);
-
-  ctx.fillStyle = SHARE_COLORS.textMuted;
-  ctx.font = '400 28px Inter';
-  ctx.fillText(p.tokenSymbol, logoX + logoSize + 30, logoY + 86);
-
-  ctx.font = '400 22px monospace';
-  ctx.fillText(p.tokenCa, logoX + logoSize + 30, logoY + 118);
-
-  // Treasury label top-right
-  ctx.textAlign = 'right';
-  ctx.font = '700 24px Inter';
-  ctx.fillStyle = SHARE_COLORS.gold;
-  ctx.fillText('MEMECOINS TREASURY', W - 60, 90);
-  ctx.font = '400 20px Inter';
-  ctx.fillStyle = SHARE_COLORS.textMuted;
-  ctx.fillText('Treasury Buy', W - 60, 122);
-
-  // Headline
-  const midY = 320;
-  ctx.textAlign = 'left';
-  ctx.fillStyle = SHARE_COLORS.teal;
-  ctx.font = '700 24px Inter';
-  ctx.fillText('TREASURY PURCHASE', 70, midY);
-
-  ctx.fillStyle = SHARE_COLORS.goldLight;
-  ctx.font = '900 90px Cinzel';
-  ctx.fillText('$' + p.usdSpent.toLocaleString('en-US'), 70, midY + 90);
-
-  ctx.fillStyle = SHARE_COLORS.textMuted;
-  ctx.font = '400 26px Inter';
-  const date = new Date(p.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-  ctx.fillText(`${p.feesUsed.toFixed(4)} SOL · ${date}`, 70, midY + 135);
-
-  // Change badge
-  const change = p.changePercent ?? 0;
-  const changeText = (change >= 0 ? '+' : '') + change.toFixed(2) + '%';
-  ctx.font = '700 30px Inter';
-  const badgeW = ctx.measureText(changeText).width + 60;
-  const badgeH = 56;
-  const badgeX = 70;
-  const badgeY = midY + 170;
-  ctx.fillStyle = change >= 0 ? 'rgba(34,197,94,0.15)' : 'rgba(230,57,70,0.15)';
-  roundRectPath(ctx, badgeX, badgeY, badgeW, badgeH, 28);
-  ctx.fill();
-  ctx.fillStyle = change >= 0 ? SHARE_COLORS.greenLight : SHARE_COLORS.red;
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(changeText, badgeX + badgeW / 2, badgeY + badgeH / 2 + 2);
-
-  // Footer
-  ctx.strokeStyle = SHARE_COLORS.border;
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(70, H - 90);
-  ctx.lineTo(W - 70, H - 90);
-  ctx.stroke();
-
-  ctx.textAlign = 'left';
-  ctx.textBaseline = 'alphabetic';
-  ctx.fillStyle = SHARE_COLORS.textMuted;
-  ctx.font = '600 26px Inter';
-  ctx.fillText('memecoinssol.xyz', 70, H - 45);
-
-  const mGrad = ctx.createLinearGradient(W - 130, H - 90, W - 70, H - 30);
-  mGrad.addColorStop(0, '#14F195');
-  mGrad.addColorStop(1, '#9945FF');
-  ctx.fillStyle = mGrad;
-  ctx.font = '900 50px Cinzel';
-  ctx.textAlign = 'right';
-  ctx.fillText('m', W - 70, H - 35);
-
-  return new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-}
-
-async function sharePurchase(p, btn) {
-  const originalText = btn.textContent;
-  btn.textContent = 'Generating...';
-  btn.disabled = true;
-
-  try {
-    const blob = await buildShareImage(p);
-    const tweetText = shareTweetText(p);
-    const fileName = `memes-treasury-${(p.tokenSymbol || 'token').replace('$', '')}.png`;
-    const file = new File([blob], fileName, { type: 'image/png' });
-
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      try {
-        await navigator.share({ files: [file], text: tweetText });
-        return;
-      } catch (err) {
-        if (err.name === 'AbortError') return;
-      }
-    }
-
-    let imageHandled = false;
-    if (typeof ClipboardItem !== 'undefined' && navigator.clipboard?.write) {
-      try {
-        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-        imageHandled = true;
-      } catch {}
-    }
-
-    if (imageHandled) {
-      showToast('Image copied! Paste it (Ctrl+V) into your tweet.');
-    } else {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = fileName;
-      a.click();
-      URL.revokeObjectURL(url);
-      showToast('Image downloaded! Attach it to your tweet.');
-    }
-
-    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`, '_blank', 'noopener');
-  } catch (e) {
-    console.warn('Share failed:', e.message);
-    showToast('Something went wrong generating the image.');
-  } finally {
-    btn.textContent = originalText;
-    btn.disabled = false;
-  }
-}
-
-// ===== TOAST =====
-function showToast(message) {
-  let toast = document.getElementById('memes-toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'memes-toast';
-    toast.className = 'memes-toast';
-    document.body.appendChild(toast);
-  }
-  toast.textContent = message;
-  toast.classList.add('show');
-  clearTimeout(toast._hideTimer);
-  toast._hideTimer = setTimeout(() => toast.classList.remove('show'), 3500);
+  const text = `Look at this 👀 The $MEMES @memecoinsoul treasury just bought ${p.tokenSymbol} with trading fees and distributed it to holders. #memecoins${handle}`;
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
 }
 
 // Load on page init + refresh every 30s
