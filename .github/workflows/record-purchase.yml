@@ -1,0 +1,44 @@
+name: Record Treasury Purchase
+
+on:
+  workflow_dispatch:
+    inputs:
+      token_name:
+        description: 'Token name'
+        required: true
+      token_symbol:
+        description: 'Token symbol (e.g. $TOKEN)'
+        required: false
+        default: ''
+      token_ca:
+        description: 'Contract address'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Record purchase
+        env:
+          TOKEN_NAME: ${{ inputs.token_name }}
+          TOKEN_SYMBOL: ${{ inputs.token_symbol }}
+          TOKEN_CA: ${{ inputs.token_ca }}
+        run: node scripts/record-purchase.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/fee-stats.json
+          git commit -m "Record purchase: ${{ inputs.token_name }}"
+          git push

@@ -21,7 +21,7 @@ if (hamburger && navMenu) {
 // ===== FEE TRACKER =====
 async function loadFeeStats() {
   try {
-    const res = await fetch('/api/stats');
+    const res = await fetch('data/fee-stats.json?t=' + Date.now());
     if (!res.ok) return;
     const data = await res.json();
 
@@ -69,57 +69,9 @@ function renderPurchaseHistory(purchases, solPrice) {
   }).join('');
 }
 
-// Admin reset form
-const resetBtn = document.getElementById('fee-reset-btn');
-if (resetBtn) {
-  resetBtn.addEventListener('click', async () => {
-    const name   = document.getElementById('p-name')?.value.trim();
-    const symbol = document.getElementById('p-symbol')?.value.trim();
-    const ca     = document.getElementById('p-ca')?.value.trim();
-    const secret = document.getElementById('p-secret')?.value.trim();
-    const status = document.getElementById('fee-admin-status');
-
-    if (!name || !secret) { if (status) status.textContent = 'Fill in token name and secret.'; return; }
-
-    resetBtn.disabled = true;
-    if (status) status.textContent = 'Processing...';
-
-    try {
-      const res = await fetch('/api/reset', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ secret, tokenName: name, tokenSymbol: symbol, tokenCa: ca }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        if (status) status.textContent = `Done! ${data.purchase.feesUsed.toFixed(4)} SOL recorded. Weekly counter reset.`;
-        document.getElementById('p-name').value = '';
-        document.getElementById('p-symbol').value = '';
-        document.getElementById('p-ca').value = '';
-        document.getElementById('p-secret').value = '';
-        loadFeeStats();
-      } else {
-        if (status) status.textContent = data.error ?? 'Error.';
-      }
-    } catch (e) {
-      if (status) status.textContent = 'Request failed.';
-    } finally {
-      resetBtn.disabled = false;
-    }
-  });
-}
-
 // Load on page init + refresh every 30s
 loadFeeStats();
 setInterval(loadFeeStats, 30_000);
-
-// Admin panel hidden by default — append ?admin=1 to the URL to show it.
-// (The /api endpoints are the real gate via ADMIN_SECRET; this just keeps
-// the form from being visible/discoverable to regular visitors.)
-if (new URLSearchParams(location.search).get('admin') === '1') {
-  const adminBar = document.getElementById('fee-admin-bar');
-  if (adminBar) adminBar.style.display = '';
-}
 
 // ===== TREASURY DATA =====
 // When tokens are added to treasury, populate this array.
