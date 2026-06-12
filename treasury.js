@@ -39,13 +39,13 @@ async function loadFeeStats() {
     if (el('total-sol')) el('total-sol').textContent = solFmt(data.totalSpent);
     if (el('total-usd')) el('total-usd').textContent = usdFmt(data.totalSpent, data.solPrice);
 
-    renderPurchaseHistory(data.purchases ?? [], data.solPrice ?? 0);
+    renderPurchaseHistory(data.purchases ?? []);
   } catch (e) {
     console.warn('Fee stats unavailable:', e.message);
   }
 }
 
-function renderPurchaseHistory(purchases, solPrice) {
+function renderPurchaseHistory(purchases) {
   const list = document.getElementById('purchases-list');
   if (!list) return;
 
@@ -54,17 +54,26 @@ function renderPurchaseHistory(purchases, solPrice) {
   list.innerHTML = purchases.map(p => {
     const date = new Date(p.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
     const caShort = p.tokenCa ? p.tokenCa.slice(0, 6) + '...' + p.tokenCa.slice(-4) : '—';
-    const usd = (p.feesUsed * solPrice).toFixed(2);
+
+    const logoHTML = p.logo
+      ? `<img src="${p.logo}" class="purchase-logo" alt="${p.tokenName}" />`
+      : `<div class="purchase-logo">${(p.tokenSymbol || '?').replace('$', '').charAt(0)}</div>`;
+
+    const change = p.changePercent;
+    const changeClass = change >= 0 ? 'change-pos' : 'change-neg';
+    const changeSign = change >= 0 ? '+' : '';
+    const changeText = change != null ? `${changeSign}${change.toFixed(2)}%` : '—';
+
     return `
-      <div class="purchase-list-item">
-        <div class="purchase-token-info">
-          <span class="purchase-token-name">${p.tokenName} <span style="color:var(--text-muted);font-weight:400">${p.tokenSymbol}</span></span>
-          <span class="purchase-token-ca">${caShort}</span>
+      <div class="purchase-card">
+        ${logoHTML}
+        <div class="purchase-name">${p.tokenName} <span class="purchase-symbol">${p.tokenSymbol}</span></div>
+        <div class="purchase-ca">${caShort}</div>
+        <div class="purchase-spent">
+          <span class="purchase-usd">$${p.usdSpent.toLocaleString('en-US')}</span>
+          <span class="purchase-sol-amount">${p.feesUsed.toFixed(4)} SOL · ${date}</span>
         </div>
-        <div class="purchase-amount">
-          <div class="purchase-sol">${p.feesUsed.toFixed(4)} SOL <span style="font-size:0.8rem;color:var(--text-muted);font-family:Inter,sans-serif">≈ $${usd}</span></div>
-          <div class="purchase-date">${date}</div>
-        </div>
+        <span class="purchase-change ${changeClass}">${changeText}</span>
       </div>`;
   }).join('');
 }

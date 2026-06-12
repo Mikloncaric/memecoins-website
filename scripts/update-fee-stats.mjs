@@ -50,6 +50,38 @@ async function getSolPrice() {
   }
 }
 
+async function updatePurchasePrices(purchases) {
+  if (!purchases || !purchases.length) return;
+
+  try {
+    const addresses = purchases.map(p => p.tokenCa).join(',');
+    const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${addresses}`);
+    if (!res.ok) {
+      console.warn('DexScreener fetch failed, keeping previous purchase prices.');
+      return;
+    }
+
+    const json = await res.json();
+    const pairs = json.pairs || [];
+
+    for (const purchase of purchases) {
+      const tokenPairs = pairs
+        .filter(p => p.baseToken?.address === purchase.tokenCa)
+        .sort((a, b) => (b.liquidity?.usd || 0) - (a.liquidity?.usd || 0));
+
+      if (tokenPairs.length === 0) continue;
+
+      const price = parseFloat(tokenPairs[0].priceUsd);
+      if (isNaN(price) || price <= 0) continue;
+
+      purchase.currentPrice = price;
+      purchase.changePercent = ((price - purchase.priceAtPurchase) / purchase.priceAtPurchase) * 100;
+    }
+  } catch (e) {
+    console.warn('Purchase price update failed:', e.message);
+  }
+}
+
 async function main() {
   const raw = await readFile(DATA_PATH, 'utf-8');
   const stats = JSON.parse(raw);
@@ -78,6 +110,8 @@ async function main() {
   } else {
     console.warn('SOL price fetch failed, keeping previous value.');
   }
+
+  await updatePurchasePrices(stats.purchases);
 
   stats.lastUpdated = new Date().toISOString();
 

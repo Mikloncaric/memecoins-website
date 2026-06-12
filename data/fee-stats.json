@@ -1,9 +1,46 @@
 {
-  "weeklyFees": 0.000939905,
+  "weeklyFees": 0,
   "totalFeesReceived": 0.000939905,
-  "totalSpent": 0,
-  "lastReset": null,
-  "purchases": [],
+  "totalSpent": 103.154433,
+  "lastReset": "2026-06-12T00:00:00.000Z",
+  "purchases": [
+    {
+      "date": "2026-06-12T00:00:00.000Z",
+      "tokenName": "Fartcoin",
+      "tokenSymbol": "$FARTCOIN",
+      "tokenCa": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+      "logo": "https://cdn.dexscreener.com/cms/images/9af5672845c89585e9ff1e3b26a640090324aa4d92222052d1043e60ef8182de?width=800&height=800&quality=95&format=auto",
+      "usdSpent": 3000,
+      "feesUsed": 44.849753,
+      "priceAtPurchase": 0.1186,
+      "currentPrice": 0.1186,
+      "changePercent": 0
+    },
+    {
+      "date": "2026-06-12T00:00:00.000Z",
+      "tokenName": "Troll",
+      "tokenSymbol": "$TROLL",
+      "tokenCa": "5UUH9RTDiSpq6HKS6bp4NdU9PNJpXRXuiw6ShBTBhgH2",
+      "logo": "https://cdn.dexscreener.com/cms/images/tLIgpz8Fa_O1THOX?width=800&height=800&quality=95&format=auto",
+      "usdSpent": 1700,
+      "feesUsed": 25.41486,
+      "priceAtPurchase": 0.06948,
+      "currentPrice": 0.06948,
+      "changePercent": 0
+    },
+    {
+      "date": "2026-06-12T00:00:00.000Z",
+      "tokenName": "Peanut the Squirrel",
+      "tokenSymbol": "$PNUT",
+      "tokenCa": "2qEHjDLDLbuBgRYvsxhc5D6uDWAivNFZGan56P1tpump",
+      "logo": "https://cdn.dexscreener.com/cms/images/778498984ea5b6eb7c9d74e1e81a2547c88a41ae80f6c840c94a7c3b7829bcd5?width=800&height=800&quality=95&format=auto",
+      "usdSpent": 2200,
+      "feesUsed": 32.889819,
+      "priceAtPurchase": 0.04262,
+      "currentPrice": 0.04262,
+      "changePercent": 0
+    }
+  ],
   "solPrice": 66.89,
   "lastBalanceLamports": 1981737,
   "lastUpdated": "2026-06-12T09:16:32.595Z",
