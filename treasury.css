@@ -342,26 +342,72 @@
 /* Purchase history */
 #purchases-section { background: var(--bg); }
 
-.purchase-list-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+#purchases-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+.purchase-card {
   background: var(--bg3);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 1.2rem 1.5rem;
-  margin-bottom: 0.8rem;
-  gap: 1rem;
-  flex-wrap: wrap;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
-.purchase-token-info { display: flex; flex-direction: column; gap: 0.2rem; }
-.purchase-token-name { font-weight: 700; font-size: 1rem; color: var(--text); }
-.purchase-token-ca   { font-size: 0.75rem; color: var(--text-muted); font-family: monospace; }
+.purchase-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(10, 168, 158, 0.12);
+}
 
-.purchase-amount { text-align: right; }
-.purchase-sol  { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold-light); }
-.purchase-date { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
+.purchase-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--bg2);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+
+.purchase-name { font-weight: 700; font-size: 1.05rem; color: var(--text); }
+.purchase-symbol { font-size: 0.85rem; font-weight: 400; color: var(--text-muted); }
+
+.purchase-ca {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: monospace;
+  word-break: break-all;
+}
+
+.purchase-spent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.4rem 0;
+}
+
+.purchase-usd { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700; color: var(--gold-light); }
+.purchase-sol-amount { font-size: 0.78rem; color: var(--text-muted); }
+
+.purchase-change {
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+}
 
 /* ===== VOTING SECTION ===== */
 #voting-section { background: var(--bg); }
@@ -633,8 +679,6 @@
   .t-stat { min-width: unset; padding: 1rem 1.2rem; }
 
   .fee-stats-grid { grid-template-columns: 1fr; }
-  .purchase-list-item { flex-direction: column; align-items: flex-start; }
-  .purchase-amount { text-align: left; }
 
   .vote-candidates { max-width: 100%; }
 
