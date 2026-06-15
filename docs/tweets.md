@@ -75,3 +75,37 @@ Status legend: ✅ posted · ⬜ not yet posted
 28. ⬜ "Quick PSA before launch: don't trust DMs, comments, or copycat accounts with a 'CA'. We will never DM you first. The real $MEMES CA drops here and on the website, together, the moment we go live. 🟢"
 
 29. ⬜ "$MEMES launches in July. One rule for launch day: the real CA comes from @memecoinsoul (pinned) and memecoinssol.xyz, at the same time, nothing else. Save this tweet. #memecoinsoul"
+
+---
+
+## Memes IRL / community-first batch (2026-06-15)
+
+30. ⬜ Community-first thesis (with IRL) — confirmed by user for posting 2026-06-15
+> A memecoin is nothing without its community. No holders, no culture, no memecoin.
+>
+> Remember: memes, together, can become something bigger than a chart. Something real. Something IRL. That's what we need, and that's exactly what we're building toward.
+>
+> $MEMES treasury rewards go straight back to holders, every week. The community is the whole point. 🟢
+>
+> #memecoinsoul
+
+31. ⬜ Memes IRL tie-in (fund real life fun)
+> Memes are fun. The community behind them is everything.
+>
+> So why wouldn't you use a meme to fund real life fun? Isn't that exactly what memes are here for? Fun, for real?
+>
+> Treasury rewards now, Fun IRL Hub next. Soul of memecoins, headed IRL. 👀
+>
+> #memecoinsoul
+
+32. ⬜ Positive aspirational comparison
+> The memecoins that make it big all have one thing in common: a community that believed early and stuck around.
+>
+> That's the energy $MEMES is built on. The treasury, the rewards, Fun IRL Hub, all of it is for the people who show up now. 🟢
+
+33. ⬜ Good night
+> One more thing before you go: memes already bring people together. $MEMES adds the rewards, and a path to real, IRL fun.
+>
+> Simple idea, big potential.
+>
+> Think about it. Good night 🌙
