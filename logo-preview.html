@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Logo Preview</title>
+  <style>
+    body { background: #06060a; display: flex; gap: 60px; align-items: center; justify-content: center; min-height: 100vh; font-family: Inter, sans-serif; flex-wrap: wrap; }
+    .option { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .option p { color: #C9A227; font-size: 1.1rem; font-weight: 600; margin: 0; }
+    .option span { color: #7a7a9a; font-size: 0.85rem; text-align: center; max-width: 180px; }
+  </style>
+</head>
+<body>
+
+  <div class="option">
+    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 100 100">
+      <defs>
+        <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#14F195" />
+          <stop offset="100%" stop-color="#9945FF" />
+        </radialGradient>
+      </defs>
+      <circle cx="50" cy="50" r="48" fill="url(#bgGrad)" />
+      <circle cx="50" cy="50" r="44" fill="#06060a" opacity="0.6" />
+      <text x="50" y="68" font-family="Georgia, serif" font-size="58" font-weight="900" text-anchor="middle" fill="#C9A227">m</text>
+    </svg>
+    <p>Opcija A</p>
+    <span>Solana gradijent pozadina, zlatno slovo</span>
+  </div>
+
+  <div class="option">
+    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 100 100">
+      <defs>
+        <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#14F195" />
+          <stop offset="100%" stop-color="#9945FF" />
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="48" fill="#06060a" stroke="#C9A227" stroke-width="2.5"/>
+      <text x="50" y="68" font-family="Georgia, serif" font-size="58" font-weight="900" text-anchor="middle" fill="url(#textGrad)">m</text>
+    </svg>
+    <p>Opcija B</p>
+    <span>Crna pozadina zlatni rub, Solana gradijent na slovu</span>
+  </div>
+
+</body>
+</html>

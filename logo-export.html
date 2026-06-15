@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Logo Export</title>
+  <style>
+    body { margin: 0; background: #111; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+    <defs>
+      <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#1a1205" />
+        <stop offset="100%" stop-color="#06060a" />
+      </radialGradient>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="6" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- Background -->
+    <circle cx="200" cy="200" r="200" fill="url(#bgGlow)" />
+
+    <!-- Outer rings -->
+    <circle cx="200" cy="200" r="185" fill="none" stroke="#C9A227" stroke-width="2" opacity="0.15"/>
+    <circle cx="200" cy="200" r="160" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.2"/>
+    <circle cx="200" cy="200" r="130" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.25"/>
+
+    <!-- Gold border circle -->
+    <circle cx="200" cy="200" r="190" fill="none" stroke="#C9A227" stroke-width="4"/>
+
+    <!-- Inner circle -->
+    <circle cx="200" cy="200" r="90" fill="#06060a" stroke="#C9A227" stroke-width="2.5"/>
+
+    <!-- Glow effect behind letter -->
+    <circle cx="200" cy="200" r="70" fill="#C9A227" opacity="0.06" filter="url(#glow)"/>
+
+    <!-- The m letter -->
+    <text
+      x="200" y="245"
+      font-family="Georgia, 'Times New Roman', serif"
+      font-size="160"
+      font-weight="900"
+      text-anchor="middle"
+      fill="#C9A227"
+      filter="url(#glow)"
+    >m</text>
+  </svg>
+</body>
+</html>
