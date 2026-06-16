@@ -1,5 +1,8 @@
-// Polls the watched wallet's SOL balance and accumulates the increase as
-// "fees received". Run on a schedule by .github/workflows/fee-tracker.yml.
+// Sums incoming SOL (fees) to the watched wallet from its transaction history,
+// instead of polling the balance delta. Reading per-transaction inflows counts
+// fees correctly even when the wallet is swept between checks (balance polling
+// misses anything that arrives and leaves within one interval).
+// Run on a schedule by .github/workflows/fee-tracker.yml.
 //
 // Output (data/fee-stats.json) is fetched directly by treasury.js — no
 // backend/API required.
@@ -14,29 +17,61 @@ const DATA_PATH = join(__dirname, '..', 'data', 'fee-stats.json');
 const WATCHED_WALLET = process.env.WATCHED_WALLET || 'Cw8CFyM9FkoMi7K7Crf6HNQqf4uEMzpKw6QNghXLvLkY';
 const RPC_URL = process.env.SOLANA_RPC_URL || 'https://api.mainnet-beta.solana.com';
 const LAMPORTS_PER_SOL = 1_000_000_000;
+// Safety cap on transactions processed per run, so a runaway backlog on a very
+// active wallet can't hang the job. The real creator wallet stays well under this.
+const MAX_TX_PER_RUN = Number(process.env.MAX_TX_PER_RUN || 1000);
 
-async function getBalanceLamports(address) {
+async function rpc(method, params) {
   const res = await fetch(RPC_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      jsonrpc: '2.0',
-      id: 1,
-      method: 'getBalance',
-      params: [address],
-    }),
+    body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params }),
   });
-
-  if (!res.ok) {
-    throw new Error(`RPC HTTP ${res.status}`);
-  }
-
+  if (!res.ok) throw new Error(`RPC HTTP ${res.status}`);
   const json = await res.json();
-  if (json.error) {
-    throw new Error(`RPC error: ${json.error.message}`);
-  }
+  if (json.error) throw new Error(`RPC error: ${json.error.message}`);
+  return json.result;
+}
 
-  return json.result.value;
+// Newest-first list of signatures more recent than `untilSig`.
+async function getNewSignatures(address, untilSig) {
+  const out = [];
+  let before;
+  while (out.length < MAX_TX_PER_RUN) {
+    const opts = { limit: 1000 };
+    if (before) opts.before = before;
+    if (untilSig) opts.until = untilSig;
+    const batch = await rpc('getSignaturesForAddress', [address, opts]);
+    if (!batch.length) break;
+    out.push(...batch);
+    if (batch.length < 1000) break;
+    before = batch[batch.length - 1].signature;
+  }
+  return out;
+}
+
+// SOL received by `address` in this transaction (0 if it was a net outflow or failed).
+async function getInflowSol(signature, address) {
+  const tx = await rpc('getTransaction', [signature, { maxSupportedTransactionVersion: 0 }]);
+  if (!tx || !tx.meta || tx.meta.err) return 0;
+  // preBalances/postBalances are indexed by static account keys first, then
+  // loaded (lookup-table) writable, then loaded readonly. Build the full ordered
+  // list so a wallet that appears as a loaded address still lines up correctly.
+  const loaded = tx.meta.loadedAddresses || {};
+  const keys = [
+    ...tx.transaction.message.accountKeys,
+    ...(loaded.writable || []),
+    ...(loaded.readonly || []),
+  ];
+  const i = keys.indexOf(address);
+  if (i < 0) return 0;
+  const delta = tx.meta.postBalances[i] - tx.meta.preBalances[i];
+  return delta > 0 ? delta / LAMPORTS_PER_SOL : 0;
+}
+
+async function getBalanceSol(address) {
+  const r = await rpc('getBalance', [address]);
+  return r.value / LAMPORTS_PER_SOL;
 }
 
 async function getSolPrice() {
@@ -83,26 +118,36 @@ async function updatePurchasePrices(purchases) {
 }
 
 async function main() {
-  const raw = await readFile(DATA_PATH, 'utf-8');
-  const stats = JSON.parse(raw);
+  const stats = JSON.parse(await readFile(DATA_PATH, 'utf-8'));
 
-  const balance = await getBalanceLamports(WATCHED_WALLET);
-  console.log(`Watched wallet balance: ${balance} lamports (${balance / LAMPORTS_PER_SOL} SOL)`);
+  stats.currentBalanceSol = await getBalanceSol(WATCHED_WALLET);
+  console.log(`Watched wallet balance: ${stats.currentBalanceSol} SOL`);
 
-  const isFirstRun = stats.lastUpdated === null;
-
-  if (isFirstRun) {
-    console.log('First run: seeding baseline balance, no fees counted yet.');
+  if (!stats.lastSignature) {
+    // First run with tx-summing: record the latest signature as the baseline and
+    // count nothing yet, so we don't sum the wallet's entire historical inflow.
+    const recent = await rpc('getSignaturesForAddress', [WATCHED_WALLET, { limit: 1 }]);
+    stats.lastSignature = recent[0]?.signature ?? null;
+    console.log(`Seeded baseline signature: ${stats.lastSignature} (no fees counted this run).`);
   } else {
-    const delta = Math.max(0, balance - stats.lastBalanceLamports);
-    const deltaSol = delta / LAMPORTS_PER_SOL;
-    stats.weeklyFees += deltaSol;
-    stats.totalFeesReceived += deltaSol;
-    console.log(`Delta: +${deltaSol} SOL (weeklyFees now ${stats.weeklyFees})`);
-  }
+    const newSigs = await getNewSignatures(WATCHED_WALLET, stats.lastSignature);
+    console.log(`New transactions since last run: ${newSigs.length}`);
+    if (newSigs.length >= MAX_TX_PER_RUN) {
+      console.warn(`Hit MAX_TX_PER_RUN (${MAX_TX_PER_RUN}); older transactions may be processed next run.`);
+    }
 
-  stats.lastBalanceLamports = balance;
-  stats.currentBalanceSol = balance / LAMPORTS_PER_SOL;
+    let inflow = 0;
+    for (const s of newSigs) {
+      inflow += await getInflowSol(s.signature, WATCHED_WALLET);
+    }
+
+    if (newSigs.length) {
+      stats.weeklyFees += inflow;
+      stats.totalFeesReceived += inflow;
+      stats.lastSignature = newSigs[0].signature; // newest processed
+      console.log(`Summed fee inflow: +${inflow.toFixed(9)} SOL (weeklyFees now ${stats.weeklyFees.toFixed(9)})`);
+    }
+  }
 
   const price = await getSolPrice();
   if (price !== null) {

@@ -11,6 +11,11 @@ ntuser.ini
 .claude/
 .claude.json
 .claude.json.backup
+CLAUDE.md
+
+# Secrets / local environment (never commit)
+.env
+.env.local
 
 # Node modules (if used later)
 node_modules/

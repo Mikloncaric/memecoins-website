@@ -101,8 +101,67 @@ function sharePurchase(p) {
   window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
 }
 
+// ===== DISTRIBUTIONS =====
+async function loadDistributions() {
+  try {
+    const res = await fetch('data/distributions.json?t=' + Date.now());
+    if (!res.ok) return;
+    const data = await res.json();
+    const dists = data.distributions ?? [];
+    const el = id => document.getElementById(id);
+
+    const totalUsd = dists.reduce((s, d) => s + (d.usdValue || 0), 0);
+    const holders = dists.length ? Math.max(...dists.map(d => d.holders || 0)) : 0;
+
+    if (el('dist-total-usd')) el('dist-total-usd').textContent = '$' + totalUsd.toLocaleString('en-US');
+    if (el('dist-count')) el('dist-count').textContent = dists.length;
+    if (el('dist-holders')) el('dist-holders').textContent = holders.toLocaleString('en-US');
+
+    renderDistributions(dists);
+  } catch (e) {
+    console.warn('Distributions unavailable:', e.message);
+  }
+}
+
+function renderDistributions(dists) {
+  const list = document.getElementById('distributions-list');
+  if (!list || !dists.length) return;
+
+  const sorted = [...dists].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  list.innerHTML = sorted.map(d => {
+    const date = new Date(d.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+    const logoHTML = d.logo
+      ? `<img src="${d.logo}" class="dist-logo" alt="${d.tokenName}" />`
+      : `<div class="dist-logo">${(d.tokenSymbol || '?').replace('$', '').charAt(0)}</div>`;
+
+    const catLabel = d.category === 'collab' ? 'Collab' : 'Our Pick';
+    const catClass = d.category === 'collab' ? 'dist-cat-collab' : 'dist-cat-pick';
+    const amount = d.tokenAmount != null ? d.tokenAmount.toLocaleString('en-US') : '';
+
+    const xLinkHTML = d.tokenX
+      ? `<a href="${d.tokenX}" target="_blank" rel="noopener" class="dist-x-link">View ${d.tokenSymbol} ↗</a>`
+      : '';
+
+    return `
+      <div class="dist-card">
+        ${logoHTML}
+        <div class="dist-name">${d.tokenName} <span class="dist-symbol">${d.tokenSymbol}</span></div>
+        <span class="dist-cat ${catClass}">${catLabel}</span>
+        <div class="dist-amount">
+          <span class="dist-usd">$${(d.usdValue || 0).toLocaleString('en-US')}</span>
+          <span class="dist-detail">${amount} ${d.tokenSymbol} · ${date}</span>
+        </div>
+        <span class="dist-holders">${(d.holders || 0).toLocaleString('en-US')} holders rewarded</span>
+        ${xLinkHTML}
+      </div>`;
+  }).join('');
+}
+
 // Load on page init + refresh every 30s
 loadFeeStats();
+loadDistributions();
 setInterval(loadFeeStats, 30_000);
 
 // ===== TREASURY DATA =====
