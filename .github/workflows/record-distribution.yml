@@ -1,0 +1,74 @@
+name: Record Holder Distribution
+
+on:
+  workflow_dispatch:
+    inputs:
+      token_name:
+        description: 'Token name'
+        required: true
+      token_symbol:
+        description: 'Token symbol (e.g. $TOKEN)'
+        required: false
+        default: ''
+      token_ca:
+        description: 'Contract address'
+        required: false
+        default: ''
+      token_x:
+        description: 'Token X/Twitter URL'
+        required: false
+        default: ''
+      logo:
+        description: 'Logo image URL'
+        required: false
+        default: ''
+      category:
+        description: 'Category: pick or collab'
+        required: false
+        default: 'pick'
+      token_amount:
+        description: 'Amount of token distributed'
+        required: false
+        default: '0'
+      usd_value:
+        description: 'USD value distributed'
+        required: false
+        default: '0'
+      holders:
+        description: 'Number of holders rewarded'
+        required: false
+        default: '0'
+
+permissions:
+  contents: write
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Record distribution
+        env:
+          TOKEN_NAME: ${{ inputs.token_name }}
+          TOKEN_SYMBOL: ${{ inputs.token_symbol }}
+          TOKEN_CA: ${{ inputs.token_ca }}
+          TOKEN_X: ${{ inputs.token_x }}
+          LOGO: ${{ inputs.logo }}
+          CATEGORY: ${{ inputs.category }}
+          TOKEN_AMOUNT: ${{ inputs.token_amount }}
+          USD_VALUE: ${{ inputs.usd_value }}
+          HOLDERS: ${{ inputs.holders }}
+        run: node scripts/record-distribution.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/distributions.json
+          git commit -m "Record distribution: ${{ inputs.token_name }}"
+          git push
