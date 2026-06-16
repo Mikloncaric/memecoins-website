@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Portfolio Tracker — MEMECOINS ($MEMES)</title>
+  <meta name="description" content="Check any Solana wallet's SOL and token holdings with a live breakdown. No wallet connect, nothing leaves your browser." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://memecoinssol.xyz/portfolio.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://memecoinssol.xyz/portfolio.html" />
+  <meta property="og:title" content="MEMECOINS Portfolio Tracker" />
+  <meta property="og:description" content="See any Solana wallet's holdings and your $MEMES treasury rewards in one place." />
+  <meta property="og:image" content="https://memecoinssol.xyz/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@memecoinsoul" />
+  <meta name="twitter:image" content="https://memecoinssol.xyz/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="portfolio.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">m</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#utility">Utility</a></li>
+      <li><a href="treasury.html">Treasury</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="gaming-hub.html">Fun IRL Hub <span class="nav-badge">Soon</span></a></li>
+      <li><a href="index.html#roadmap">Roadmap</a></li>
+      <li class="nav-mobile-buy"><a href="index.html#buy">Buy $MEMES</a></li>
+    </ul>
+    <a href="index.html#buy" class="btn-nav">Buy $MEMES</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- HEADER + FORM -->
+  <section id="portfolio-header">
+    <div class="section-inner centered">
+      <span class="section-label">Portfolio Tracker</span>
+      <h1>Your Portfolio</h1>
+      <p class="section-desc">Paste any Solana wallet address to see its SOL and token holdings with a live breakdown. No wallet connect, your address is only used to read public on-chain data in your browser.</p>
+
+      <form class="pf-form" id="pf-form">
+        <input type="text" id="pf-address" placeholder="Solana wallet address" autocomplete="off" spellcheck="false" />
+        <button type="submit" id="pf-submit" class="btn-primary">View</button>
+      </form>
+
+      <div class="pf-note">
+        <span class="pf-note-tag">Preview</span>
+        <p>Holdings are read live from the Solana chain. Rewards received from the $MEMES treasury will appear here once weekly distributions begin after launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="portfolio-results">
+    <div class="section-inner">
+      <div id="pf-status" class="pf-status"></div>
+
+      <div id="pf-content" class="pf-content">
+        <div class="pf-summary">
+          <div class="pf-total">
+            <span class="pf-total-label">Total Value</span>
+            <span class="pf-total-value" id="pf-total">$0.00</span>
+            <span class="pf-total-sub" id="pf-sub"></span>
+          </div>
+          <div class="pf-chart-wrap" id="pf-chart-wrap"></div>
+        </div>
+
+        <div class="pf-holdings" id="pf-holdings"></div>
+      </div>
+
+      <div class="pf-rewards">
+        <h3>$MEMES Treasury Rewards</h3>
+        <p>Tokens distributed to you from the $MEMES treasury will show here. This activates once weekly distributions begin after launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">m</div>
+    <p class="footer-tagline">MEMECOINS — The Hub of the Meme Economy</p>
+    <div class="footer-links">
+      <a href="https://x.com/memecoinsoul" target="_blank" rel="noopener">X (Twitter)</a>
+      <a href="#">Telegram (soon)</a>
+      <a href="#">pump.fun (soon)</a>
+      <a href="whitepaper.html">Whitepaper</a>
+      <a href="mailto:contact@memecoinssol.xyz">contact@memecoinssol.xyz</a>
+    </div>
+    <p class="footer-disclaimer">$MEMES is a community token. This is not financial advice. Always DYOR.</p>
+  </footer>
+
+  <script src="portfolio.js"></script>
+</body>
+</html>
