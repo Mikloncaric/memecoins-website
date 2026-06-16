@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Whitepaper — MEMECOINS ($MEMES)</title>
+  <meta name="description" content="The $MEMES whitepaper: how trading fees fund a treasury that buys other pump.fun tokens and redistributes them to holders, plus governance, tokenomics, and the Fun IRL Hub." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://memecoinssol.xyz/whitepaper.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://memecoinssol.xyz/whitepaper.html" />
+  <meta property="og:title" content="MEMECOINS ($MEMES) Whitepaper" />
+  <meta property="og:description" content="Trading fees fund a treasury that buys pump.fun tokens and redistributes them to $MEMES holders. Read the full mechanism." />
+  <meta property="og:image" content="https://memecoinssol.xyz/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@memecoinsoul" />
+  <meta name="twitter:image" content="https://memecoinssol.xyz/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <style>
+    #wp-header {
+      padding: 8rem 1.5rem 2.5rem;
+      background: radial-gradient(ellipse at center, #1a1205 0%, var(--bg) 70%);
+      text-align: center;
+    }
+    #wp-header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dim));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.6rem;
+    }
+    .wp-version { color: var(--text-muted); font-size: 0.9rem; letter-spacing: 0.05em; }
+    .wp-evolving {
+      max-width: 720px;
+      margin: 1.6rem auto 0;
+      background: rgba(201, 162, 39, 0.08);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.3rem;
+      text-align: left;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .wp-evolving strong { color: var(--gold-light); }
+
+    .wp { max-width: 820px; margin: 0 auto; }
+    .wp h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--gold-light);
+      margin: 2.6rem 0 1rem;
+    }
+    .wp h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 1.6rem 0 0.6rem;
+    }
+    .wp p { color: var(--text-muted); margin-bottom: 1rem; line-height: 1.8; }
+    .wp strong { color: var(--text); }
+    .wp ul { list-style: none; margin: 0 0 1.2rem; padding: 0; }
+    .wp ul li {
+      color: var(--text-muted);
+      padding-left: 1.3rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+      line-height: 1.7;
+    }
+    .wp ul li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--gold-dim);
+      font-size: 0.55rem;
+      top: 0.5em;
+    }
+    .wp table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 0 1.4rem;
+      font-size: 0.92rem;
+    }
+    .wp th, .wp td {
+      text-align: left;
+      padding: 0.7rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .wp th { color: var(--gold); font-weight: 600; letter-spacing: 0.03em; }
+    .wp td { color: var(--text-muted); }
+    .wp .wp-phase { color: var(--gold-light); font-weight: 700; margin: 1.4rem 0 0.5rem; }
+    .wp a { color: var(--teal-light); text-decoration: none; }
+    .wp a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">m</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#utility">Utility</a></li>
+      <li><a href="treasury.html">Treasury</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="gaming-hub.html">Fun IRL Hub <span class="nav-badge">Soon</span></a></li>
+      <li><a href="index.html#roadmap">Roadmap</a></li>
+      <li class="nav-mobile-buy"><a href="index.html#buy">Buy $MEMES</a></li>
+    </ul>
+    <a href="index.html#buy" class="btn-nav">Buy $MEMES</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- HEADER -->
+  <section id="wp-header">
+    <h1>MEMECOINS Whitepaper</h1>
+    <div class="wp-version">Version 0.3 · Draft for review</div>
+    <div class="wp-evolving">
+      <strong>Early and evolving.</strong> $MEMES is a new, experimental project. This whitepaper is a living document: some features described here are not built yet and are in active development, and details may change often as we improve them for the community and the project. We intend to operate in line with applicable laws and crypto regulations as they develop.
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <section>
+    <div class="wp">
+
+      <h2>Abstract</h2>
+      <p>Most memecoins follow the same arc: a burst of hype, a price spike, and then silence. Holders are left with a token that has no further reason to exist. $MEMES is built around a different idea: turn ordinary trading activity into an engine that continuously rewards holders with other promising tokens from the pump.fun ecosystem (later, other memecoin ecosystems too, as the community decides). The mechanism starts working from the very first trade.</p>
+
+      <h2>1. Introduction</h2>
+      <p>$MEMES is a token launched on <strong>pump.fun</strong> (Solana). Every trade on the bonding curve generates a creator fee. Instead of disappearing into a single wallet, that fee is split 50/50: half funds a <strong>treasury</strong> that buys other pump.fun tokens and redistributes them to $MEMES holders on a weekly basis, and half funds ongoing <strong>development</strong> of the project.</p>
+      <p>The result is a flywheel: trading activity funds the treasury, the treasury buys tokens, tokens are distributed to holders, holders have more reason to hold and engage, and that drives more trading activity. We call this the <strong>Meme Economy flywheel</strong>.</p>
+
+      <h2>2. Fee Mechanism</h2>
+      <p>$MEMES relies entirely on pump.fun's native creator fee. There is no additional tax, no separate buy/sell fee layered on top.</p>
+      <ul>
+        <li><strong>Bonding curve (pre-graduation):</strong> creator fee of <strong>0.3%</strong> of trade volume, active immediately from the first trade. There is no waiting period or graduation requirement.</li>
+        <li><strong>Post-graduation (PumpSwap):</strong> fees follow pump.fun's tiered structure based on market cap. The rate rises to roughly <strong>0.95%</strong> in mid-range tiers, then tapers down to <strong>0.05%</strong> at very large market caps (98,240+ SOL).</li>
+        <li>All fees accrue to the <strong>creator wallet</strong>, the same wallet that launched $MEMES. This wallet is publicly verifiable on-chain at all times.</li>
+      </ul>
+
+      <h2>3. The 50/50 Split</h2>
+      <p>Every fee payout received by the creator wallet is divided manually by the team at first, while automation is built:</p>
+      <ul>
+        <li><strong>50% to Treasury.</strong> Used to buy other pump.fun tokens (at a later stage, all other memecoins if the community decides), which are then distributed to $MEMES holders (see Section 4).</li>
+        <li><strong>50% to Development.</strong> Covers website/infrastructure costs, tooling, design, and continued build-out of the project (portfolio tracker, mobile app, governance tooling, etc.).</li>
+      </ul>
+      <p>Because both the creator wallet and the treasury wallet are public Solana addresses, every split, purchase, and distribution can be independently verified on-chain.</p>
+
+      <h2>4. Treasury &amp; Distribution</h2>
+      <p>The treasury holds two categories of tokens, each with its own distribution rules.</p>
+
+      <h3>4.1 Our Pick</h3>
+      <p>Tokens the treasury <strong>buys directly</strong> using trading fees. The community votes on which pump.fun project gets picked next (see Section 5).</p>
+      <ul>
+        <li><strong>100% distributed to eligible holders weekly</strong></li>
+        <li>No lock, no cut for the treasury</li>
+      </ul>
+
+      <h3>4.2 Collab / Partnership</h3>
+      <p>Tokens <strong>received from official partnerships and collaborations</strong>, not purchased by the treasury, but allocated to $MEMES by partner projects. Selected by the team.</p>
+      <ul>
+        <li><strong>50%</strong> distributed weekly to eligible holders, same as Our Pick</li>
+        <li><strong>50%</strong> held by the treasury for <strong>1 year</strong>, then distributed exclusively to <strong>long-term $MEMES holders</strong> (see 4.4) as a loyalty reward</li>
+      </ul>
+      <p>This split rewards the people who stick around. The longer you hold $MEMES, the more of these partner-token pools you become eligible for.</p>
+      <p><strong>Why a project would partner with $MEMES:</strong></p>
+      <ul>
+        <li><strong>A path to IRL spending.</strong> Our ecosystem aims to prioritize partner tokens for real-world use through the Fun IRL Hub (gift cards, vouchers, credit), giving a token genuine utility beyond the chart.</li>
+        <li><strong>Extra exposure.</strong> The token is put in front of the $MEMES community and across our channels.</li>
+        <li><strong>Extra daily volume.</strong> Treasury activity and holder interest add ongoing trading volume.</li>
+        <li><strong>Cross-community alignment.</strong> Collaboration fits the idea that legit memes are stronger together, building goodwill across communities.</li>
+        <li><strong>Our long-term holders.</strong> Most importantly, the token reaches an audience of aligned, loyal, long-term holders, not just short-term traders.</li>
+      </ul>
+
+      <h3>4.3 Holder Eligibility (anti-gaming)</h3>
+      <p>To receive any weekly distribution, a wallet must hold:</p>
+      <ul>
+        <li>At least <strong>$10 worth of $MEMES</strong></li>
+        <li><strong>Continuously</strong> for the 7 days leading up to the distribution <strong>and</strong> at the exact moment of distribution</li>
+      </ul>
+      <p>Eligibility is verified via Helius API snapshots taken at the start of the 7-day window and again at the distribution moment. This prevents wallets from buying in right before a snapshot, collecting a reward, and immediately selling.</p>
+
+      <h3>4.4 Long-Term Holder Reward</h3>
+      <p>The 1-year-locked portion of Collab/Partnership tokens (Section 4.2) is reserved for <strong>long-term holders</strong>: wallets that have held $MEMES <strong>continuously for 1+ year</strong>, tracked via ongoing Helius snapshots. When the lock period for a given partner-token allocation ends, that pool is distributed exclusively among qualifying long-term holders.</p>
+
+      <h3>4.5 Schedule &amp; Claiming</h3>
+      <table>
+        <thead>
+          <tr><th>Pool</th><th>Frequency</th><th>Mechanism</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Our Pick (100%)</td><td>Weekly</td><td>Streamflow claim portal</td></tr>
+          <tr><td>Collab/Partnership (50% liquid)</td><td>Weekly</td><td>Streamflow claim portal</td></tr>
+          <tr><td>Collab/Partnership (50% locked)</td><td>Annual, per allocation</td><td>Streamflow claim portal, after 1-year hold</td></tr>
+        </tbody>
+      </table>
+      <p>Claiming is self-serve: eligible holders connect to the Streamflow claim portal and claim their allocation, paying a small network fee (~0.01 SOL) to cover the claim transaction. Nothing is force-airdropped.</p>
+
+      <h2>5. Governance / Voting</h2>
+      <p>Holders decide what the treasury buys next.</p>
+      <ul>
+        <li><strong>Platform:</strong> <a href="https://realms.today" target="_blank" rel="noopener">Realms</a> (SPL Governance), on-chain and auditable voting</li>
+        <li><strong>Subject:</strong> which pump.fun token becomes the next "Our Pick"</li>
+        <li><strong>Weighting:</strong> voting power is proportional to <strong>$MEMES held</strong> (token-weighted), rather than one vote per wallet</li>
+        <li><strong>Cost:</strong> effectively free, only the base Solana transaction fee</li>
+        <li><strong>Future:</strong> later phases will evaluate a custom on-chain program for fairer governance that reduces the influence of very large holders on individual votes</li>
+      </ul>
+
+      <h2>6. Tokenomics</h2>
+      <table>
+        <tbody>
+          <tr><th>Token</th><td>$MEMES</td></tr>
+          <tr><th>Blockchain</th><td>Solana</td></tr>
+          <tr><th>Launch platform</th><td>pump.fun</td></tr>
+          <tr><th>Contract Address</th><td>TBA at launch</td></tr>
+          <tr><th>Team Allocation</th><td>TBA</td></tr>
+          <tr><th>Community</th><td>100%, fair launch, no presale</td></tr>
+        </tbody>
+      </table>
+      <p>All tokenomics figures will be finalized and locked at launch and reflected on <a href="https://memecoinssol.xyz">memecoinssol.xyz</a>.</p>
+
+      <h2>7. The Fun IRL Hub</h2>
+      <p>$MEMES starts with on-chain rewards, but the longer-term vision goes further: bringing memecoins into everyday life.</p>
+      <p>Memecoins are one of the largest and most active communities in crypto, and crypto is steadily becoming a normal way to pay for things. The Fun IRL Hub aims to connect those two ideas, giving $MEMES holders a path to turn their rewards into real-world fun.</p>
+      <p>Early focus areas being explored include:</p>
+      <ul>
+        <li><strong>Gaming:</strong> credit and gift cards for popular gaming platforms</li>
+        <li><strong>Cinema:</strong> tickets and vouchers</li>
+        <li><strong>Theme parks:</strong> passes and experiences</li>
+        <li><strong>Sports:</strong> tickets and merch</li>
+      </ul>
+      <p>The Fun IRL Hub is not limited to $MEMES alone. Part of the vision is to bring memecoin communities together, so holders across different projects can put their holdings to real-world use, with $MEMES as the hub that makes it possible.</p>
+      <p>Specifics such as partners, supported categories, and how redemption works are in active development and will be detailed as they are finalized. The Fun IRL Hub is a Phase 3 initiative (see Roadmap).</p>
+
+      <h2>8. Roadmap</h2>
+      <div class="wp-phase">Phase 1: Launch</div>
+      <ul>
+        <li>Token launch on pump.fun</li>
+        <li>Website live (memecoinssol.xyz)</li>
+        <li>Whitepaper</li>
+        <li>Telegram community</li>
+        <li>X growth campaign</li>
+      </ul>
+      <div class="wp-phase">Phase 2: Ecosystem</div>
+      <ul>
+        <li>First treasury buys</li>
+        <li>Holder distribution system live (eligibility tracking, claim portal)</li>
+        <li>Community building</li>
+        <li>Partner project onboarding (Collab/Partnership category)</li>
+      </ul>
+      <div class="wp-phase">Phase 3: Expansion</div>
+      <ul>
+        <li>CEX listings</li>
+        <li>DAO governance (custom voting program)</li>
+        <li>Fun IRL Hub: turn memecoins into real-world fun (gift cards, vouchers, credit)</li>
+        <li>Launchpad for vetted pump.fun projects</li>
+        <li>Cross-chain expansion</li>
+      </ul>
+
+      <h2>9. Risks &amp; Disclaimer</h2>
+      <p>$MEMES is an experimental token built on a public, permissionless launch platform. As with any crypto asset:</p>
+      <ul>
+        <li>Token prices are highly volatile and can go to zero.</li>
+        <li>The treasury mechanism depends on ongoing trading volume. Fee income is not guaranteed and will fluctuate.</li>
+        <li>Distribution timelines (weekly/annual) are operational targets, not contractual obligations, and may be adjusted as the project matures (e.g. migration to automated on-chain distribution in later phases).</li>
+        <li>Regulatory treatment of tokens and token-based rewards varies by jurisdiction and may change. We intend to follow the applicable laws and crypto regulations in the places where the project operates, and to adapt as those rules evolve.</li>
+        <li>Some features described in this document are still in development and may change, ship later, or not ship at all.</li>
+        <li>Nothing in this document is financial, legal, or tax advice. Do your own research before interacting with $MEMES or any token in the treasury.</li>
+      </ul>
+
+      <p style="margin-top:2.5rem; font-style:italic; opacity:0.8;">This document is a living draft and will be updated as the project evolves. The latest version is always linked from <a href="https://memecoinssol.xyz">memecoinssol.xyz</a>.</p>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">m</div>
+    <p class="footer-tagline">MEMECOINS — The Hub of the Meme Economy</p>
+    <div class="footer-links">
+      <a href="https://x.com/memecoinsoul" target="_blank" rel="noopener">X (Twitter)</a>
+      <a href="#">Telegram (soon)</a>
+      <a href="#">pump.fun (soon)</a>
+      <a href="whitepaper.html">Whitepaper</a>
+      <a href="mailto:contact@memecoinssol.xyz">contact@memecoinssol.xyz</a>
+    </div>
+    <p class="footer-disclaimer">$MEMES is a community token. This is not financial advice. Always DYOR.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
