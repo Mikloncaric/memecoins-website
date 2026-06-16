@@ -109,3 +109,26 @@ Status legend: ✅ posted · ⬜ not yet posted
 > Simple idea, big potential.
 >
 > Think about it. Good night 🌙
+
+---
+
+## Morning + daily batch (2026-06-16)
+
+(All scheduled 2026-06-16, will flip to ✅ when posted.)
+
+34. ⬜ Morning / start the day (primary)
+> GM. 🟢 Memes are better together, and so are the people who build them. Today we keep building $MEMES for the community. July, on pump.fun. Let's go.
+>
+> #memecoinsoul
+
+35. ⬜ Morning / start the day (alt, fuller)
+> GM to everyone who believes memes can be more than a chart. 🟢 $MEMES brings rewards back to the community, with a Fun IRL Hub to take it into real life. July, on pump.fun. Let's make today count.
+
+36. ⬜ Aspirational community thesis (push each other, IRL)
+> The strongest memecoins were never just charts. They were communities that showed up for each other, members who pushed each other. That's the standard $MEMES is building to, rewards for holders and a path to real IRL fun. We push each other IRL. Let's go. 🟢
+
+37. ⬜ IRL question (engagement)
+> Quick one: if your favorite memecoin could pay for something real, a game, a coffee, a night out, would you use it? That's the future the Fun IRL Hub is building toward. 👀 #memecoinsoul
+
+38. ⬜ Building / outreach + community
+> We're reaching out to builders and communities across memes and Solana this week. The idea is simple: legit memes are stronger together, especially when it comes to bringing them into real life. If that resonates, you're our kind of people. 🟢

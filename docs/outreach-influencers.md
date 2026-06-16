@@ -4,7 +4,7 @@ Goal: build relationships with memecoin/Solana voices ahead of the $MEMES launch
 
 pump.fun's core team is already tracked separately in docs/outreach-pumpfun.md (Noah Tweedale, Alon Cohen, Dylan Kerler, @pumpdotfun) with a drafted DM/email and status checklist. This file covers the wider influencer/ecosystem list.
 
-Status: 17 candidates across 3 categories (expanded 2026-06-15 per the "15-20: meme/memecoin people + Solana + general meme people" brief). DM template finalized (2026-06-15, see "Draft — X DM" below). **Sending in progress 2026-06-15** (collaboration / "memes unite for IRL" angle). Contacted so far (7): Murad, Ansem, Frank DeGods, notthreadguy, Unipcs, kmoney, CryptoGodJohn (all of category A except 0xVonGogh). Remaining: 0xVonGogh, all of category B (Solana) and C (media).
+Status: 17 candidates across 3 categories (expanded 2026-06-15 per the "15-20: meme/memecoin people + Solana + general meme people" brief). DM template finalized (2026-06-15, see "Draft — X DM" below). **Sending in progress 2026-06-15** (collaboration / "memes unite for IRL" angle). Contacted so far (13): all of category A (Murad, Ansem, Frank DeGods, notthreadguy, Unipcs, kmoney, CryptoGodJohn, 0xVonGogh) and all of category B Solana (Mert, toly, Raj Gokal, SOLBigBrain, cozypront). Remaining: category C media only (Lark Davis, CryptoWendyO, DegenerateNews, Imran Khan).
 
 ## A. Memecoin OG / culture voices
 
@@ -100,11 +100,34 @@ Same collaboration angle, light positive hook each.
 **CryptoGodJohn** ([@CryptoGodJohn](https://x.com/CryptoGodJohn))
 > Hey, you're one of the first we're reaching out to. We're building $MEMES on pump.fun, launching July: trading fees fund a treasury that buys other pump.fun tokens and airdrops them to holders. We're offering a hand to all memes. We think the legit ones should unite and push for real IRL use, and our project is partly built on that. You've got a real eye for memecoins with an edge, so we'd genuinely value your take. Any advice, help, or comment would mean a lot. Thanks for everything you've built.
 
+## Batch 3 (X DMs) (SENT 2026-06-16)
+
+0xVonGogh (meme/community angle) plus category B Solana ecosystem (founder/builder angle, more "would value your take" than a meme shoutout).
+
+**0xVonGogh** ([@0xVonGogh](https://x.com/0xVonGogh))
+> Hey, you're one of the first we're reaching out to. We're building $MEMES on pump.fun, launching July: trading fees fund a treasury that buys other pump.fun tokens and airdrops them to holders. We're offering a hand to all memes. We think the legit ones should unite and push for real IRL use, and our project is partly built on that. The way you back community driven memecoin movements is a big reason we wanted you in early. Any advice, help, or comment would mean a lot. Thanks for everything you've built.
+
+**Mert (Helius CEO)** ([@0xMert_](https://x.com/0xMert_))
+> Hey Mert, building $MEMES on pump.fun, launching July: trading fees fund a treasury that buys other pump.fun tokens and airdrops them to holders. As people building on Solana, the tooling you've put out with Helius has made our lives easier, so you felt like a natural person to reach out to. We also think legit memes should unite and push toward real IRL use, which is where we're headed. Would love your take, or even just a look. Thanks for everything you do for Solana devs.
+
+**Anatoly Yakovenko ("toly")** ([@aeyakovenko](https://x.com/aeyakovenko))
+> Hey toly, building $MEMES on pump.fun, launching July: trading fees fund a treasury that buys other pump.fun tokens and airdrops them to holders. Not a shill, you just always seem to notice the more creative things people build on Solana, and we'd genuinely value your eyes on this one. We also think legit memes should unite and push toward real IRL use, which is where we're headed next. Any take, or even a quick look, would mean a lot. Thanks for everything you've built for Solana.
+
+**Raj Gokal** ([@rajgokal](https://x.com/rajgokal))
+> Hey Raj, building $MEMES on pump.fun, launching July: trading fees fund a treasury that buys other pump.fun tokens and airdrops them to holders. We're big on the Solana ecosystem and trying to add something useful to it, with legit memes uniting and pushing toward real IRL use. We'd genuinely value your take, or even just a look as we get close to launch. Thanks for everything you and the team do for builders on Solana.
+
+**SOLBigBrain** ([@SOLBigBrain](https://x.com/SOLBigBrain))
+> Hey, you're one of the first we're reaching out to. We're building $MEMES on pump.fun, launching July: trading fees fund a treasury that buys other pump.fun tokens and airdrops them to holders. We think legit memes should unite and push for real IRL use, and our project is partly built on that. You've got a great read on what's happening across Solana, so your take would mean a lot to us. Any advice, help, or comment would be hugely welcome. Thanks for everything you put into the ecosystem.
+
+**cozypront** ([@cozypront](https://x.com/cozypront))
+> Hey, you're one of the first we're reaching out to. We're building $MEMES on pump.fun, launching July: trading fees fund a treasury that buys other pump.fun tokens and airdrops them to holders. We think legit memes should unite and push for real IRL use, and our project is partly built on that. You're close to the Solana community we'd love to build alongside, so we wanted to reach out early. Any advice, help, or comment would mean a lot. Thanks for everything you do in the ecosystem.
+
 ## Next steps
 
 - [x] X DM template finalized (above)
 - [x] Pilot batch sent 2026-06-15 (Murad, Ansem, Frank DeGods, notthreadguy)
 - [x] Batch 2 sent 2026-06-15 (Unipcs, kmoney, CryptoGodJohn)
-- [ ] Draft + send next group: 0xVonGogh (category A), then category B (Mert, toly, Raj Gokal, SOLBigBrain, cozypront) and C (Lark Davis, CryptoWendyO, DegenerateNews, Imran Khan)
-- [ ] Track replies from the 7 already contacted
-- [ ] Cross-reference docs/outreach-pumpfun.md for the pump.fun team (already drafted)
+- [x] Batch 3 sent 2026-06-16 (0xVonGogh + Solana ecosystem B)
+- [ ] Draft + send category C media (Lark Davis, CryptoWendyO, DegenerateNews, Imran Khan), coverage/transparency angle
+- [ ] Send the pump.fun team DMs (already drafted in docs/outreach-pumpfun.md)
+- [ ] Track replies from the 13 already contacted
