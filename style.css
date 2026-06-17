@@ -1,3 +1,19 @@
+/* ===== SELF-HOSTED FONTS (latin, variable) ===== */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700 900;
+  font-display: swap;
+  src: url('fonts/cinzel-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('fonts/inter-latin.woff2') format('woff2');
+}
+
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
