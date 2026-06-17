@@ -1,0 +1,24 @@
+# MEMECOINS ($MEMES)
+
+> $MEMES is a community memecoin launching on pump.fun (Solana) in July 2026. Trading fees fund a treasury that buys other pump.fun tokens and distributes them to $MEMES holders weekly, with a planned Fun IRL Hub to turn memecoin rewards into real-world use such as gift cards, vouchers, and credit.
+
+## Key facts
+- Token: $MEMES on Solana, launching on pump.fun in July 2026. Fair launch, 100% community, no presale.
+- Core mechanic: the pump.fun creator trading fee is split 50/50. Half funds a treasury that buys other pump.fun tokens and redistributes them to eligible $MEMES holders weekly. Half funds development.
+- Holder eligibility: hold at least $10 of $MEMES continuously through a weekly snapshot window.
+- Governance: holders vote on which token the treasury buys next via Realms (SPL Governance), weighted by $MEMES held.
+- Fun IRL Hub: planned path for holders to turn rewards into real-world spending (gaming, cinema, theme parks, sports).
+
+## Pages
+- [Home](https://memecoinssol.xyz/): overview, tokenomics, roadmap.
+- [Whitepaper](https://memecoinssol.xyz/whitepaper.html): full fee mechanism, distribution rules, governance, tokenomics, roadmap, risks.
+- [Treasury](https://memecoinssol.xyz/treasury.html): treasury categories (Our Pick, Collab/Partnership) and distribution model.
+- [Portfolio tracker](https://memecoinssol.xyz/portfolio.html): check any Solana wallet's SOL and token holdings.
+- [Fun IRL Hub](https://memecoinssol.xyz/gaming-hub.html): the real-world spending vision.
+
+## Links
+- X (Twitter): https://x.com/memecoinsoul
+- Contact: contact@memecoinssol.xyz
+
+## Notes
+- This is an early-stage, experimental project. Some features are still in development. Nothing here is financial advice.
