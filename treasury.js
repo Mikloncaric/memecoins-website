@@ -159,10 +159,11 @@ function renderDistributions(dists) {
   }).join('');
 }
 
-// Load on page init + refresh every 30s
+// Load on page init + refresh every 10 min (fee data only changes every ~15 min via cron;
+// 30s polling was wasting Vercel edge requests with cache-busted fetches)
 loadFeeStats();
 loadDistributions();
-setInterval(loadFeeStats, 30_000);
+setInterval(loadFeeStats, 600_000);
 
 // ===== TREASURY DATA =====
 // When tokens are added to treasury, populate this array.
