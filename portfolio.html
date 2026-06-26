@@ -83,10 +83,33 @@
 
         <div class="pf-holdings" id="pf-holdings"></div>
       </div>
+    </div>
+  </section>
 
+  <!-- WEEKLY ALLOCATION ESTIMATOR -->
+  <section id="portfolio-estimator">
+    <div class="section-inner">
       <div class="pf-rewards">
-        <h3>$MEMES Treasury Rewards</h3>
-        <p>Tokens distributed to you from the $MEMES treasury will show here. This activates once weekly distributions begin after launch.</p>
+        <h3>Estimate your weekly $MEMES rewards</h3>
+        <span class="pf-est-badge" id="est-badge">Example</span>
+        <p class="pf-est-sub">50% of trading fees buy pump.fun tokens that are distributed to holders weekly. Once $MEMES is live, look up your wallet above and your share fills in automatically from your balance, the live supply, and that week's fees. The numbers below are an example.</p>
+        <div class="pf-est-inputs">
+          <div class="pf-est-field">
+            <span class="pf-est-field-label">Your $MEMES holdings</span>
+            <span class="pf-est-field-val" id="est-memes-val">—</span>
+          </div>
+          <div class="pf-est-field">
+            <span class="pf-est-field-label">Treasury fees this week</span>
+            <span class="pf-est-field-val" id="est-fees-val">—</span>
+          </div>
+        </div>
+        <div class="pf-est-out">
+          <div class="pf-est-row"><span>Distribution pool (50%)</span><strong id="est-pool">—</strong></div>
+          <div class="pf-est-row"><span>Your share of supply</span><strong id="est-share">—</strong></div>
+          <div class="pf-est-row pf-est-total"><span>Your weekly allocation</span><strong id="est-alloc">—</strong></div>
+        </div>
+        <p class="pf-est-auto" id="est-auto-note" style="display:none;">Auto-filled from your wallet's $MEMES balance and this week's live treasury fees.</p>
+        <p class="pf-est-note">Estimate only. Assumes 1,000,000,000 total supply; the real allocation uses eligible-holder supply and live fees at launch.</p>
       </div>
     </div>
   </section>
