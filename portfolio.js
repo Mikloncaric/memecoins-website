@@ -243,6 +243,7 @@ async function lookup(address) {
     ]);
     const metaMap = await getTokenMeta(tokens.map(t => t.mint));
     render(address, solAmount, solPrice, tokens, metaMap);
+    autoFillEstimator(tokens);
   } catch (e) {
     setStatus('Could not load this wallet right now (' + e.message + '). The public Solana RPC can rate-limit, try again in a moment.', true);
     $('pf-content').classList.remove('show');
@@ -263,3 +264,76 @@ if (form) {
     lookup(address);
   });
 }
+
+// ===== WEEKLY ALLOCATION ESTIMATOR =====
+// $MEMES mint / CA — set this at launch. While empty, the estimator stays in manual
+// mode. Once set, a wallet lookup auto-fills the holder's $MEMES balance + the real
+// on-chain supply, and (where the fee tracker is deployed) this week's live fees.
+const MEMES_CA = '';
+const MEMES_SUPPLY_FALLBACK = 1_000_000_000; // assumed supply until the real one is read on-chain
+let memesSupply = MEMES_SUPPLY_FALLBACK;
+let estSolPrice = 0;
+// Read-only indicators: show an illustrative example pre-launch, replaced by the
+// holder's real numbers once $MEMES is live and a wallet is looked up. Not user-editable.
+let estMemes = 5_000_000;
+let estFees = 10;
+
+function estUsd(sol) {
+  return estSolPrice ? ' (~$' + (sol * estSolPrice).toLocaleString('en-US', { maximumFractionDigits: 2 }) + ')' : '';
+}
+
+function fmtNum(n) {
+  return n.toLocaleString('en-US', { maximumFractionDigits: n > 0 && n < 1 ? 6 : 2 });
+}
+
+function computeAllocation() {
+  const pool = estFees * 0.5;
+  const share = estMemes > 0 ? estMemes / memesSupply : 0;
+  const alloc = pool * share;
+  if ($('est-memes-val')) $('est-memes-val').textContent = fmtNum(estMemes);
+  if ($('est-fees-val')) $('est-fees-val').textContent = fmtNum(estFees) + ' SOL';
+  if ($('est-pool')) $('est-pool').textContent = pool.toFixed(4) + ' SOL' + estUsd(pool);
+  if ($('est-share')) $('est-share').textContent = (share * 100).toLocaleString('en-US', { maximumFractionDigits: 4 }) + '%';
+  if ($('est-alloc')) $('est-alloc').textContent = alloc.toFixed(4) + ' SOL' + estUsd(alloc);
+}
+
+// Real $MEMES total supply from chain (once the CA is known).
+async function getMemesSupply() {
+  if (!MEMES_CA) return null;
+  try {
+    const r = await rpc('getTokenSupply', [MEMES_CA]);
+    return r?.value?.uiAmount ?? null;
+  } catch { return null; }
+}
+
+// This week's treasury fees from the live fee tracker. Present where the tracker is
+// deployed (it writes data/fee-stats.json); absent elsewhere → returns null.
+async function loadWeeklyFees() {
+  try {
+    const res = await fetch('data/fee-stats.json?t=' + Date.now());
+    if (!res.ok) return null;
+    const j = await res.json();
+    return typeof j.weeklyFees === 'number' ? j.weeklyFees : null;
+  } catch { return null; }
+}
+
+// After a wallet lookup: if $MEMES is live, fill the estimator straight from this
+// wallet's real balance, the real supply, and this week's live fees.
+async function autoFillEstimator(tokens) {
+  if (!MEMES_CA) return; // dormant pre-launch — the example readout stays
+  const held = (tokens || []).find(t => t.mint === MEMES_CA);
+  estMemes = held ? held.amount : 0;
+  const [supply, weekly] = await Promise.all([getMemesSupply(), loadWeeklyFees()]);
+  if (supply) memesSupply = supply;
+  if (weekly != null && weekly > 0) estFees = weekly;
+  if ($('est-badge')) $('est-badge').style.display = 'none';
+  if ($('est-auto-note')) $('est-auto-note').style.display = 'block';
+  computeAllocation();
+}
+
+async function initEstimator() {
+  if (!$('est-memes-val')) return;
+  try { estSolPrice = await getSolPrice(); } catch {}
+  computeAllocation();
+}
+initEstimator();
