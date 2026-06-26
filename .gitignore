@@ -23,3 +23,8 @@ node_modules/
 # OS files
 .DS_Store
 Thumbs.db
+private/
+
+# Game art (CONFIDENTIAL — never commit to public repo)
+likovi/
+no background/
