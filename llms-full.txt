@@ -1,0 +1,55 @@
+# MEMECOINS ($MEMES) — Full Reference
+
+> $MEMES is a community memecoin launching on pump.fun (Solana) in July 2026. It turns ordinary trading activity into an engine that continuously rewards holders with other tokens from the pump.fun ecosystem, and plans to extend that into real-world use through the Fun IRL Hub. Fair launch, 0% team allocation, 100% community.
+
+## Overview
+Most memecoins follow the same arc: hype, a price spike, then silence. $MEMES is built differently: trading fees fund a treasury that buys other promising pump.fun tokens and redistributes them to $MEMES holders every week. The mechanism is active from the very first trade.
+
+## Fee mechanism
+- $MEMES relies entirely on pump.fun's native creator fee. No additional tax or separate buy/sell fee.
+- Bonding curve (pre-graduation): creator fee of 0.3% of trade volume, active immediately from the first trade, no graduation wait.
+- Post-graduation (PumpSwap): tiered by market cap, up to roughly 0.95% in mid tiers, tapering to 0.05% at very large market caps.
+- All fees accrue to the public creator wallet, verifiable on-chain.
+
+## The 50/50 split
+- 50% to Treasury: buys other pump.fun tokens, distributed to $MEMES holders.
+- 50% to Development: website, tooling, design, continued build-out.
+- Both wallets are public Solana addresses, so every split, purchase, and distribution is verifiable on-chain.
+
+## Treasury and distribution
+- Our Pick: tokens the treasury buys directly, community-voted, 100% distributed to eligible holders weekly, no lock.
+- Collab/Partnership: tokens allocated by partner projects. 50% distributed weekly; 50% held one year then distributed to long-term holders (held 1+ year) as a loyalty reward.
+- Holder eligibility: hold at least $10 of $MEMES continuously for the 7 days before a distribution and at the distribution moment, verified via on-chain snapshots (anti-gaming).
+
+## Governance
+- Holders vote on which pump.fun token the treasury buys next, via Realms (SPL Governance), on-chain.
+- Voting power is proportional to $MEMES held (token-weighted), not one vote per wallet.
+
+## Tokenomics
+- Token: $MEMES on Solana, launched on pump.fun.
+- Team allocation: 0% (fair launch, no pre-mine, no presale).
+- Community: 100%.
+- Contract address: announced at launch, posted on x.com/memecoinsoul (pinned) and on memecoinssol.xyz at the same time, nowhere else.
+
+## Genesis first-holders reward
+- On launch day, an extra 10% of that day's trading fees goes into a one-time Genesis pool, split equally among qualifying first-day holders.
+- Self-funding (paid from launch-day fees); never a fixed promised amount.
+
+## Fun IRL Hub
+- A planned path for holders to turn rewards into real-world fun: gaming credit, cinema tickets, theme-park passes, sports tickets, vouchers, and credit.
+- The vision includes bringing memecoin communities together so holders across projects can put holdings to real-world use.
+
+## Roadmap
+- Phase 1: launch, website, whitepaper, Telegram, X growth.
+- Phase 2: first treasury buys, holder distribution system, community, partner onboarding.
+- Phase 3: broader expansion, DAO governance, the Fun IRL Hub.
+
+## Links
+- Website: https://memecoinssol.xyz
+- Whitepaper: https://memecoinssol.xyz/whitepaper.html
+- X (Twitter): https://x.com/memecoinsoul
+- Telegram: https://t.me/memecoinsoul
+- Contact: contact@memecoinssol.xyz
+
+## Risk and disclaimer
+- $MEMES is an experimental token on a public, permissionless launch platform. Token prices are volatile and can go to zero. Fee income depends on trading volume and is not guaranteed. Distribution timelines are operational targets, not contractual obligations. Nothing here is financial, legal, or tax advice. Do your own research.
