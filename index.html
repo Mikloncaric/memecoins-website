@@ -33,13 +33,80 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "MEMECOINS",
-    "alternateName": "$MEMES",
-    "url": "https://memecoinssol.xyz",
-    "description": "MEMECOINS is the hub of the meme coin ecosystem on pump.fun (Solana). Trading fees buy and distribute pump.fun tokens to $MEMES holders weekly.",
-    "sameAs": [
-      "https://x.com/memecoinsoul"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://memecoinssol.xyz/#organization",
+        "name": "MEMECOINS",
+        "alternateName": "$MEMES",
+        "url": "https://memecoinssol.xyz",
+        "logo": "https://memecoinssol.xyz/og-cover.png",
+        "description": "MEMECOINS is the hub of the meme coin ecosystem on pump.fun (Solana). Trading fees buy and distribute pump.fun tokens to $MEMES holders weekly.",
+        "sameAs": [
+          "https://x.com/memecoinsoul",
+          "https://t.me/memecoinsoul"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://memecoinssol.xyz/#website",
+        "url": "https://memecoinssol.xyz",
+        "name": "MEMECOINS ($MEMES)",
+        "publisher": { "@id": "https://memecoinssol.xyz/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is $MEMES?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "$MEMES is a community token launching on pump.fun (Solana) in July 2026. Trading fees fund a treasury that buys other pump.fun tokens and distributes them to $MEMES holders every week."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do the holder rewards work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The pump.fun creator fee is split 50/50. Half funds a treasury that buys other pump.fun tokens and redistributes them to eligible holders weekly. Half funds development. The mechanism is active from the very first trade."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When does $MEMES launch?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "$MEMES launches in July 2026 on pump.fun. The official contract address is posted on x.com/memecoinsoul (pinned) and on memecoinssol.xyz at the same time, and nowhere else."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a presale or team allocation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. $MEMES is a fair launch with 0% team allocation and no presale. 100% goes to the community."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I qualify for the weekly rewards?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hold at least $10 of $MEMES continuously through the weekly snapshot window. Full rules are in the whitepaper."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the Fun IRL Hub?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A planned part of the project that aims to let holders turn their rewards into real-world fun such as gift cards, vouchers, and credit."
+            }
+          }
+        ]
+      }
     ]
   }
   </script>
@@ -219,6 +286,40 @@
       <div class="buy-buttons">
         <a href="https://x.com/memecoinsoul" target="_blank" rel="noopener" class="btn-primary">Follow on X</a>
         <a href="#" class="btn-secondary disabled">Buy on pump.fun (soon)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-inner">
+      <span class="section-label">FAQ</span>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-q">What is $MEMES?</h3>
+          <p class="faq-a">$MEMES is a community token launching on pump.fun (Solana) in July 2026. Trading fees fund a treasury that buys other pump.fun tokens and distributes them to $MEMES holders every week.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">How do the holder rewards work?</h3>
+          <p class="faq-a">The pump.fun creator fee is split 50/50. Half funds a treasury that buys other pump.fun tokens and redistributes them to eligible holders weekly. Half funds development. The mechanism is active from the very first trade.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">When does $MEMES launch?</h3>
+          <p class="faq-a">$MEMES launches in July 2026 on pump.fun. The official contract address is posted on x.com/memecoinsoul (pinned) and on memecoinssol.xyz at the same time, and nowhere else.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">Is there a presale or team allocation?</h3>
+          <p class="faq-a">No. $MEMES is a fair launch with 0% team allocation and no presale. 100% goes to the community.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">How do I qualify for the weekly rewards?</h3>
+          <p class="faq-a">Hold at least $10 of $MEMES continuously through the weekly snapshot window. Full rules are in the whitepaper.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">What is the Fun IRL Hub?</h3>
+          <p class="faq-a">A planned part of the project that aims to let holders turn their rewards into real-world fun such as gift cards, vouchers, and credit.</p>
+        </div>
       </div>
     </div>
   </section>
