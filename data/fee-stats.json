@@ -14,8 +14,8 @@
       "usdSpent": 3000,
       "feesUsed": 44.849753,
       "priceAtPurchase": 0.1186,
-      "currentPrice": 0.1426,
-      "changePercent": 20.23608768971333
+      "currentPrice": 0.1419,
+      "changePercent": 19.64586846543002
     },
     {
       "date": "2026-06-12T00:00:00.000Z",
@@ -27,8 +27,8 @@
       "usdSpent": 1700,
       "feesUsed": 25.41486,
       "priceAtPurchase": 0.06948,
-      "currentPrice": 0.05474,
-      "changePercent": -21.214738054116296
+      "currentPrice": 0.05379,
+      "changePercent": -22.582037996545772
     },
     {
       "date": "2026-06-12T00:00:00.000Z",
@@ -40,13 +40,13 @@
       "usdSpent": 2200,
       "feesUsed": 32.889819,
       "priceAtPurchase": 0.04262,
-      "currentPrice": 0.04091,
-      "changePercent": -4.0122008446738535
+      "currentPrice": 0.04112,
+      "changePercent": -3.5194744251525143
     }
   ],
-  "solPrice": 75.22,
+  "solPrice": 74.89,
   "lastBalanceLamports": 1981737,
-  "lastUpdated": "2026-07-01T10:30:03.745Z",
-  "currentBalanceSol": 0.012580867,
-  "lastSignature": "3zkfrLuXL7vmF7UK66rjSKfSQCtu4Z2SW55h9svCt8k84GQTqRHXwEoGC19VVDKfg8KSWJfzFd2tjhrdY291n86V"
+  "lastUpdated": "2026-07-01T13:18:49.789Z",
+  "currentBalanceSol": 0.001780778,
+  "lastSignature": "3XaWXJDcmt548YBkFsnrfqX5hxnd9cdMz3Cb9vMKnmrr864wp67t7VQobjjqZhAYbHVNwaxzHafi5hkZUuBXWWuA"
 }
